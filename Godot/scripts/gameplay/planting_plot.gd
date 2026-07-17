@@ -106,6 +106,57 @@ func get_supported_flower_display_name() -> String:
 	return str(flower_lookup.definition.get("display_name", "Unavailable"))
 
 
+func get_save_snapshot() -> Dictionary:
+	if _flower == null:
+		return {"state": EMPTY, "flower": null}
+	return {"state": get_lifecycle_state(), "flower": _flower.get_save_snapshot()}
+
+
+func prepare_restore_snapshot(data: Dictionary) -> Dictionary:
+	if not data.has("state") or not data.state is String or not data.has("flower"):
+		return _failure("INVALID_PLOT_SNAPSHOT", "Plot snapshot is incomplete")
+	var saved_state: String = data.state
+	var flower_payload: Variant = data.flower
+	if saved_state == EMPTY:
+		if flower_payload != null:
+			return _failure("INVALID_PLOT_SNAPSHOT", "EMPTY plot cannot contain flower data")
+		return {"ok": true, "candidate": {"state": EMPTY, "flower": null}}
+	if flower_payload == null or not flower_payload is Dictionary:
+		return _failure("INVALID_PLOT_SNAPSHOT", "Non-empty plot requires flower data")
+	if not flower_payload.has("flower_id") or not flower_payload.has("seed_id"):
+		return _failure("INVALID_PLOT_SNAPSHOT", "Flower payload is incomplete")
+	var flower_lookup := _find_definition_by_id(str(flower_payload.flower_id))
+	var seed_lookup := _find_definition_by_id(str(flower_payload.seed_id))
+	if flower_lookup.is_empty() or seed_lookup.is_empty():
+		return _failure("CONTENT_DEFINITION_MISSING", "Saved flower or seed definition is missing")
+	var factory_result := FlowerInstanceScript.create_from_snapshot(flower_payload, flower_lookup.definition, seed_lookup.definition)
+	if not factory_result.ok:
+		return factory_result
+	var candidate: Variant = factory_result.candidate
+	if candidate.lifecycle_state != saved_state:
+		return _failure("INVALID_PLOT_SNAPSHOT", "Plot state does not match flower lifecycle state")
+	return {"ok": true, "candidate": {"state": saved_state, "flower": candidate}}
+
+
+func commit_restore_candidate(candidate: Dictionary) -> Dictionary:
+	if not candidate.has("state") or not candidate.has("flower"):
+		return _failure("INVALID_PLOT_CANDIDATE", "Plot restore candidate is incomplete")
+	_flower = candidate.flower
+	state_changed.emit(get_lifecycle_state())
+	if _flower != null:
+		growth_changed.emit(_flower.growth_elapsed_minutes, _flower.growth_time_minutes)
+	return _success("restore", "Plot restored")
+
+
+func reset_runtime_state() -> void:
+	_flower = null
+	state_changed.emit(EMPTY)
+
+
+func _failure(code: String, message: String) -> Dictionary:
+	return {"ok": false, "code": code, "message": message}
+
+
 func _find_definition_by_id(content_id: String) -> Dictionary:
 	if _content_registry == null or not _content_registry.is_ready():
 		return {}

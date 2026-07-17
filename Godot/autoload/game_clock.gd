@@ -61,6 +61,42 @@ func reset_for_test() -> void:
 	_paused = true
 
 
+func get_save_snapshot() -> Dictionary:
+	return {"elapsed_gameplay_minutes": elapsed_gameplay_minutes}
+
+
+func validate_restore_snapshot(data: Dictionary) -> Dictionary:
+	if not data.has("elapsed_gameplay_minutes") or not _is_nonnegative_integer(data.elapsed_gameplay_minutes):
+		return {"ok": false, "code": "INVALID_CLOCK_STATE", "message": "elapsed_gameplay_minutes must be a non-negative integer"}
+	return {"ok": true, "candidate": {"elapsed_gameplay_minutes": int(data.elapsed_gameplay_minutes)}}
+
+
+func restore_from_snapshot(data: Dictionary) -> Dictionary:
+	var prepared := validate_restore_snapshot(data)
+	if not prepared.ok:
+		return prepared
+	return commit_restore_candidate(prepared.candidate)
+
+
+func commit_restore_candidate(candidate: Dictionary) -> Dictionary:
+	if not candidate.has("elapsed_gameplay_minutes"):
+		return {"ok": false, "code": "INVALID_CLOCK_CANDIDATE", "message": "Clock candidate is incomplete"}
+	elapsed_gameplay_minutes = int(candidate.elapsed_gameplay_minutes)
+	_residual_gameplay_minutes = 0.0
+	minutes_advanced.emit(0, elapsed_gameplay_minutes)
+	return {"ok": true, "code": "OK"}
+
+
+func reset_runtime_state() -> void:
+	elapsed_gameplay_minutes = 0
+	_residual_gameplay_minutes = 0.0
+	minutes_advanced.emit(0, elapsed_gameplay_minutes)
+
+
+func _is_nonnegative_integer(value: Variant) -> bool:
+	return (typeof(value) == TYPE_INT or typeof(value) == TYPE_FLOAT) and value >= 0 and floor(float(value)) == float(value)
+
+
 func _advance_minutes(minutes: int) -> void:
 	elapsed_gameplay_minutes += minutes
 	minutes_advanced.emit(minutes, elapsed_gameplay_minutes)
