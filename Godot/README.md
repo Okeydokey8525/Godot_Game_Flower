@@ -3,6 +3,35 @@
 This is the parallel Godot runtime for Plant Tales. `Source/` remains the preserved
 GDevelop behavioral reference; it is not converted or edited by this migration.
 
+## M4.3A.5 Telemetry & Debug Evidence
+
+`TelemetryService` is a local debug-evidence writer, not a gameplay system or cloud
+analytics client. Bootstrap enables it only in debug builds and explicitly starts one
+session. Release/non-debug builds keep it disabled by default, and disabled telemetry
+creates no file.
+
+- Runtime output: `user://telemetry/session_<opaque-id>.jsonl`
+- Test output: `user://plant_tales_telemetry_tests/`
+- One UTF-8 JSON document is written and flushed per accepted event.
+- Session metadata is deep-copied at start and remains logically immutable for every
+  event. It includes opaque session/run IDs, Godot and project version, migration and
+  content/save versions, evidence kind, and an optional deterministic test seed.
+
+The allow-list is: `SESSION_START`, `APP_STATE_READY`, `CONTENT_REGISTRY_READY`,
+`GREENHOUSE_READY`, flower lifecycle events, `SAVE_COMPLETE`, `SAVE_REJECTED`,
+`LOAD_COMPLETE`, `LOAD_REJECTED`, and `SESSION_END`. Payload contracts reject empty
+or malformed evidence with `TELEMETRY_INVALID_PAYLOAD`; unknown events are not written.
+
+`functional_runtime` and `automated_test` are the only evidence kinds emitted now.
+`human_playtest` is reserved for a future phase and must not be inferred from these
+files. The service collects no user account, email, machine, network, IP, location, or
+absolute-path data; it performs no network requests or uploads.
+
+`close_session(reason)` guarantees `SESSION_END` only when it completes successfully.
+It is attempted during normal shutdown but cannot be guaranteed after a crash or forced
+termination. Flushing each event intentionally favors local debug durability over
+throughput; telemetry cost is pending measurement in M4.3A.6.
+
 ## M4.3A.4 Save/Load Runtime Parity
 
 - **Godot:** 4.7.1 Standard x86_64 / GDScript / Compatibility renderer
@@ -64,6 +93,7 @@ $python = "C:\Users\leduc\.cache\codex-runtimes\codex-primary-runtime\dependenci
 & $console --headless --path "C:\LeDucLuong\Plant Tales\Godot" --quit-after 30
 & $console --headless --path "C:\LeDucLuong\Plant Tales\Godot" --script res://tests/greenhouse_vertical_slice_test.gd
 & $console --headless --path "C:\LeDucLuong\Plant Tales\Godot" --script res://tests/save_load_vertical_slice_test.gd
+& $console --headless --path "C:\LeDucLuong\Plant Tales\Godot" --script res://tests/telemetry_baseline_test.gd
 ```
 
 ContentRegistry still owns validated definitions only. Full schema, assets, economy,

@@ -24,6 +24,7 @@ const CONTENT_SCHEMA_VERSION := "1.0.0-STABLE"
 var _content_registry: Variant
 var _game_clock: Variant
 var _save_service: Variant
+var _telemetry_service: Variant
 var _plot: Variant
 
 
@@ -31,6 +32,7 @@ func _ready() -> void:
 	_content_registry = get_node_or_null("/root/ContentRegistry")
 	_game_clock = get_node_or_null("/root/GameClock")
 	_save_service = get_node_or_null("/root/SaveService")
+	_telemetry_service = get_node_or_null("/root/TelemetryService")
 	if _content_registry == null or _game_clock == null or _save_service == null or not _content_registry.is_ready():
 		push_error("[PLANT_TALES][GREENHOUSE_ERROR] ContentRegistry is not ready.")
 		status_label.text = "Configuration error: content is unavailable"
@@ -39,6 +41,10 @@ func _ready() -> void:
 	_plot.state_changed.connect(_on_plot_state_changed)
 	_plot.growth_changed.connect(_on_plot_growth_changed)
 	_plot.action_rejected.connect(_on_action_rejected)
+	_plot.flower_planted.connect(_on_flower_planted)
+	_plot.flower_watered.connect(_on_flower_watered)
+	_plot.flower_bloomed.connect(_on_flower_bloomed)
+	_plot.flower_harvested.connect(_on_flower_harvested)
 	_game_clock.minutes_advanced.connect(_plot.advance_from_clock)
 	plant_button.pressed.connect(_on_plant_pressed)
 	water_button.pressed.connect(_on_water_pressed)
@@ -53,6 +59,7 @@ func _ready() -> void:
 	status_label.text = "Ready to plant a White Lily"
 	_refresh_ui()
 	print("[PLANT_TALES][GREENHOUSE_READY]")
+	_record_telemetry("GREENHOUSE_READY", {"scene": scene_file_path})
 
 
 func _exit_tree() -> void:
@@ -105,6 +112,35 @@ func _on_action_rejected(action: String, reason: String, severity: String) -> vo
 	_refresh_ui()
 
 
+func _on_flower_planted(flower_id: String) -> void:
+	var snapshot: Dictionary = _plot.get_save_snapshot()
+	var flower: Dictionary = snapshot.get("flower", {})
+	_record_telemetry("FLOWER_PLANTED", {"flower_id": flower_id, "seed_id": str(flower.get("seed_id", ""))})
+
+
+func _on_flower_watered(flower_id: String) -> void:
+	_record_telemetry("FLOWER_WATERED", {"flower_id": flower_id})
+
+
+func _on_flower_bloomed(flower_id: String) -> void:
+	_record_telemetry("FLOWER_BLOOMED", {
+		"flower_id": flower_id,
+		"growth_elapsed_minutes": _plot.get_growth_elapsed_minutes(),
+	})
+
+
+func _on_flower_harvested(flower_id: String) -> void:
+	_record_telemetry("FLOWER_HARVESTED", {"flower_id": flower_id})
+
+
+func _record_telemetry(event_name: String, payload: Dictionary) -> void:
+	if _telemetry_service == null or not _telemetry_service.is_session_active():
+		return
+	var result: Dictionary = _telemetry_service.record_event(event_name, payload)
+	if not result.ok:
+		push_warning("[PLANT_TALES][TELEMETRY_WARNING] %s: %s" % [event_name, result.code])
+
+
 func _apply_result(result: Dictionary) -> void:
 	status_label.text = str(result.get("message", result.get("code", "Action complete")))
 	_refresh_ui()
@@ -128,8 +164,10 @@ func save_runtime_state(save_path: String = "") -> Dictionary:
 	var result: Dictionary = _save_service.save_document(build_save_document(), resolved_path)
 	if result.ok:
 		print("[PLANT_TALES][SAVE_COMPLETE]")
+		_record_telemetry("SAVE_COMPLETE", {"result_code": str(result.code), "save_version": SAVE_VERSION})
 		return {"ok": true, "code": "OK", "message": "Save successful"}
 	print("[PLANT_TALES][SAVE_REJECTED] code=%s" % result.code)
+	_record_telemetry("SAVE_REJECTED", {"code": str(result.code)})
 	return {"ok": false, "code": result.code, "message": "Save rejected: %s" % result.message}
 
 
@@ -139,12 +177,15 @@ func load_runtime_state(save_path: String = "") -> Dictionary:
 	var loaded: Dictionary = _save_service.load_document(resolved_path)
 	if not loaded.ok:
 		print("[PLANT_TALES][LOAD_REJECTED] code=%s" % loaded.code)
+		_record_telemetry("LOAD_REJECTED", {"code": str(loaded.code)})
 		return {"ok": false, "code": loaded.code, "message": "Load rejected: %s" % loaded.message}
 	var restored := _restore_document(loaded.details.document)
 	if not restored.ok:
 		print("[PLANT_TALES][LOAD_REJECTED] code=%s" % restored.code)
+		_record_telemetry("LOAD_REJECTED", {"code": str(restored.code)})
 		return {"ok": false, "code": restored.code, "message": "Load rejected: %s" % restored.message}
 	print("[PLANT_TALES][LOAD_COMPLETE]")
+	_record_telemetry("LOAD_COMPLETE", {"result_code": "OK", "save_version": SAVE_VERSION})
 	return {"ok": true, "code": "OK", "message": "Load successful"}
 
 
