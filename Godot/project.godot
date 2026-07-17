@@ -12,6 +12,7 @@ config/features=PackedStringArray("4.7", "GL Compatibility")
 
 AppState="*res://autoload/app_state.gd"
 ContentRegistry="*res://autoload/content_registry.gd"
+GameClock="*res://autoload/game_clock.gd"
 
 [display]
 

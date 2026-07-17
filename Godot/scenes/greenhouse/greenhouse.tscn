@@ -1,0 +1,91 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/gameplay/greenhouse_controller.gd" id="1_controller"]
+
+[node name="Greenhouse" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_controller")
+
+[node name="Layout" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 80.0
+offset_top = 48.0
+offset_right = -80.0
+offset_bottom = -48.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 18
+
+[node name="Header" type="VBoxContainer" parent="Layout"]
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="Layout/Header"]
+layout_mode = 2
+text = "Plant Tales - Greenhouse"
+horizontal_alignment = 1
+
+[node name="GameTimeLabel" type="Label" parent="Layout/Header"]
+layout_mode = 2
+text = "Day 1 - 06:00"
+horizontal_alignment = 1
+
+[node name="PlotPanel" type="PanelContainer" parent="Layout"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PlotContent" type="VBoxContainer" parent="Layout/PlotPanel"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="FlowerNameLabel" type="Label" parent="Layout/PlotPanel/PlotContent"]
+layout_mode = 2
+text = "Canonical flower loading..."
+horizontal_alignment = 1
+
+[node name="SoilPlaceholder" type="ColorRect" parent="Layout/PlotPanel/PlotContent"]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+color = Color(0.36, 0.22, 0.12, 1)
+
+[node name="LifecycleLabel" type="Label" parent="Layout/PlotPanel/PlotContent"]
+layout_mode = 2
+text = "State: EMPTY"
+horizontal_alignment = 1
+
+[node name="GrowthProgress" type="ProgressBar" parent="Layout/PlotPanel/PlotContent"]
+layout_mode = 2
+show_percentage = false
+
+[node name="Controls" type="HBoxContainer" parent="Layout"]
+layout_mode = 2
+alignment = 1
+theme_override_constants/separation = 12
+
+[node name="PlantButton" type="Button" parent="Layout/Controls"]
+layout_mode = 2
+text = "Plant"
+
+[node name="WaterButton" type="Button" parent="Layout/Controls"]
+layout_mode = 2
+text = "Water"
+
+[node name="AdvanceTimeButton" type="Button" parent="Layout/Controls"]
+layout_mode = 2
+text = "Debug: Advance Time"
+
+[node name="HarvestButton" type="Button" parent="Layout/Controls"]
+layout_mode = 2
+text = "Harvest"
+
+[node name="StatusLabel" type="Label" parent="Layout"]
+layout_mode = 2
+text = "Initializing Greenhouse..."
+horizontal_alignment = 1
