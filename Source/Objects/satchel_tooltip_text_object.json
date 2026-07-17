@@ -1,0 +1,11 @@
+{
+  "name": "SatchelTooltipTextObject",
+  "type": "TextObject::Text",
+  "variables": [],
+  "characterSize": 16,
+  "font": "",
+  "bold": false,
+  "italic": true,
+  "color": { "r": 230, "g": 240, "b": 255 },
+  "string": "Active: White Lily Seeds [Plantable]"
+}

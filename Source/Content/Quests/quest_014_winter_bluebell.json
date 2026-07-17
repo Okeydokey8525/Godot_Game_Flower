@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "id": "quest_014_winter_bluebell",
+  "display_name": "Frosty Bluebells",
+  "author": "Design Lead",
+  "last_modified": "2026-07-17",
+  "tags": ["harvest", "winter", "hardy"],
+  "title": "Keeping the Greenhouse Alive in Winter",
+  "steps": [
+    { "type": "Harvest", "target_id": "flower_bluebell", "count": 3 }
+  ],
+  "completion": { "npc_id": "npc_thomas" },
+  "rewards": [
+    { "gold": 450 }
+  ],
+  "repeatable": false,
+  "season": "Winter",
+  "dependencies": ["quest_012_moonlight_orchid"]
+}

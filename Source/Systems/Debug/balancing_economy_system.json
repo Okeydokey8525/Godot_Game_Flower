@@ -1,0 +1,120 @@
+{
+  "name": "BalancingAndEconomySystem",
+  "associatedLayout": "GreenhouseScene",
+  "events": [
+    {
+      "type": "BuiltinCommonInstructions::Comment",
+      "comment": "================================================================================\nSYSTEM: BALANCING & ECONOMY TUNING (PC1 QUALITY PASS #6)\nAUTHOR: Antigravity | LAST MODIFIED: 2026-07-17\nPURPOSE: Quản lý 3 trụ cột cân bằng: Clock Speed Tuning (1s real = 2m game),\nFlower Growth/Return Rate (White Lily 18h -> 50G), và Stamina/Pace (Zero Lock).\n================================================================================"
+    },
+    {
+      "type": "BuiltinCommonInstructions::Comment",
+      "comment": "BLOCK 1: CLOCK & TIME SKIP SPEED TUNING (Normal = 120 -> 8m/day, FastForward = 600)"
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": "VarGlobal",
+          "parameters": ["g_TimeTicker.is_paused", "=", "false"]
+        },
+        {
+          "type": "VarGlobal",
+          "parameters": ["g_TimeTicker.fast_forward", "=", "false"]
+        }
+      ],
+      "actions": [
+        {
+          "type": "ModVarGlobal",
+          "parameters": ["g_TimeTicker.speed", "=", "120"]
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": "VarGlobal",
+          "parameters": ["g_TimeTicker.is_paused", "=", "false"]
+        },
+        {
+          "type": "VarGlobal",
+          "parameters": ["g_TimeTicker.fast_forward", "=", "true"]
+        }
+      ],
+      "actions": [
+        {
+          "type": "ModVarGlobal",
+          "parameters": ["g_TimeTicker.speed", "=", "600"]
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Comment",
+      "comment": "BLOCK 2: FLOWER GROWTH TIME & RETURN RATE TUNING (White Lily = 18h growth -> 50G value)"
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": "VarInstance",
+          "parameters": ["FlowerInstanceObject.flower_id", "=", "\"flower_white_lily\""]
+        },
+        {
+          "type": "VarInstance",
+          "parameters": ["FlowerInstanceObject.growth_stage", "=", "\"Growing\""]
+        },
+        {
+          "type": "VarInstance",
+          "parameters": ["FlowerInstanceObject.is_watered", "=", "true"]
+        }
+      ],
+      "actions": [
+        {
+          "type": "ModVarInstance",
+          "parameters": ["FlowerInstanceObject.growth_target_minutes", "=", "1080"]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Comment",
+          "comment": "1080 game minutes = exactly 18 game hours -> blooms cleanly after 1 night sleep + watering!"
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": "VarInstance",
+          "parameters": ["ShippingBinObject.pending_item_id", "=", "\"flower_white_lily\""]
+        }
+      ],
+      "actions": [
+        {
+          "type": "ModVarInstance",
+          "parameters": ["ShippingBinObject.pending_unit_price", "=", "50"]
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Comment",
+      "comment": "BLOCK 3: ENERGY & ACTION PACE BALANCING (Zero Stamina Lock / Fatigue Frustration for PC1)"
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": "BuiltinCommonInstructions::AlwaysTrue"
+        }
+      ],
+      "actions": [
+        {
+          "type": "ModVarGlobal",
+          "parameters": ["g_WorldState.player_stamina", "=", "100"]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Comment",
+          "comment": "Ensure stamina never depletes below max during prototype validation runs"
+        }
+      ]
+    }
+  ]
+}

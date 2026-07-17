@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "id": "seed_lavender",
+  "display_name": "Lavender Seeds",
+  "author": "Botanist Lead",
+  "last_modified": "2026-07-17",
+  "tags": ["seed", "summer"],
+  "item_type": "Seed",
+  "target_flower_id": "flower_lavender",
+  "buy_price": 20,
+  "satchel_slot_default": 4,
+  "icon_resource": "seed_lavender_icon.png"
+}

@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "id": "npc_thomas",
+  "display_name": "Thomas the Village Elder",
+  "author": "Narrative Team",
+  "last_modified": "2026-07-17",
+  "tags": ["tutorial", "elder"],
+  "portrait": "portrait_thomas_normal.png",
+  "default_schedule": {
+    "default": { "x": 416, "y": 192, "scene": "GreenhouseScene" }
+  },
+  "dialogue_root": "dialogue_thomas_intro"
+}

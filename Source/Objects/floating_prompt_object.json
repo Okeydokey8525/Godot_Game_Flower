@@ -1,0 +1,17 @@
+{
+  "name": "FloatingPromptObject",
+  "type": "TextObject::Text",
+  "variables": [
+    {
+      "name": "is_visible",
+      "type": "boolean",
+      "value": false
+    }
+  ],
+  "characterSize": 18,
+  "font": "",
+  "bold": true,
+  "italic": false,
+  "color": { "r": 255, "g": 235, "b": 150 },
+  "string": "[E] Talk"
+}

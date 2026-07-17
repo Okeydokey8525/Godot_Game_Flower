@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "id": "flower_rose",
+  "display_name": "Crimson Rose",
+  "author": "Botanist Lead",
+  "last_modified": "2026-07-17",
+  "tags": ["spring", "summer", "fragrant", "gift"],
+  "description": "A classic deep red rose with velvety petals. Beloved by village florists and Anna.",
+  "rarity": "Uncommon",
+  "growth_time": 1440,
+  "seed_item": "seed_rose",
+  "yield_item": "flower_rose",
+  "sprite": "flower_rose_bloom.png",
+  "sprout_sprite_resource": "flower_rose_sprout.png",
+  "sell_price": 88,
+  "festival_bonus": 20,
+  "favorite_season": "Spring",
+  "preferred_weather": "Sunny"
+}

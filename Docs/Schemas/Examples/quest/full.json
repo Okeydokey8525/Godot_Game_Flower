@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "id": "quest_001_lily_request",
+  "display_name": "Greenhouse Restoration",
+  "author": "Design Lead",
+  "last_modified": "2026-07-17",
+  "tags": ["tutorial", "main_story", "greenhouse"],
+  "title": "Thomas's Greenhouse Restoration",
+  "steps": [
+    { "type": "Plant", "target_id": "seed_white_lily", "count": 1 },
+    { "type": "Water", "target_id": "flower_white_lily", "count": 1 },
+    { "type": "Harvest", "target_id": "flower_white_lily", "count": 1 },
+    { "type": "Ship", "target_id": "flower_white_lily", "count": 1 }
+  ],
+  "completion": {
+    "npc_id": "npc_thomas",
+    "dialogue_on_complete": "dialogue_quest001_done"
+  },
+  "rewards": [
+    { "gold": 150 },
+    { "item_id": "seed_rose", "count": 3 }
+  ],
+  "repeatable": false,
+  "season": "All",
+  "dependencies": []
+}

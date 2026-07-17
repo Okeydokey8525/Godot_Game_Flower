@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "id": "quest_005_tulip_festival",
+  "display_name": "Spring Tulip Display",
+  "author": "Design Lead",
+  "last_modified": "2026-07-17",
+  "tags": ["harvest", "spring", "elena"],
+  "title": "Decorating the Village Town Hall",
+  "steps": [
+    { "type": "Harvest", "target_id": "flower_tulip", "count": 4 }
+  ],
+  "completion": { "npc_id": "npc_elena" },
+  "rewards": [
+    { "gold": 300 }
+  ],
+  "repeatable": false,
+  "season": "Spring",
+  "dependencies": ["quest_001_lily_request"]
+}

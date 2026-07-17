@@ -1,0 +1,80 @@
+{
+  "name": "SaveManager",
+  "associatedLayout": "BootScene",
+  "events": [
+    {
+      "type": "BuiltinCommonInstructions::Comment",
+      "comment": "================================================================================\nSINGLETON 04: SAVE MANAGER\nPURPOSE: Quản lý persistence layer, Atomic Save Protocol, Migration & Checksum validation.\n================================================================================"
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": "BuiltinCommonInstructions::AtBeginningOfScene"
+        }
+      ],
+      "actions": [
+        {
+          "type": "ModVarGlobal",
+          "parameters": ["g_SaveManager.is_dirty", "=", "false"]
+        },
+        {
+          "type": "ModVarGlobal",
+          "parameters": ["g_SaveManager.active_slot", "=", "1"]
+        },
+        {
+          "type": "ModVarGlobal",
+          "parameters": ["g_SaveManager.schema_version", "=", "\"1.0.0\""]
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Comment",
+      "comment": "BLOCK 2: DIRTY FLAG TRACKING (Sprint 3.4.5 — MarkDirty on Gameplay State Change)"
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": "BuiltinCommonInstructions::Or",
+          "conditions": [
+            {
+              "type": "VarGlobal",
+              "parameters": ["g_EventBusQueue.has_signal(\"MarkSaveDirty\")", "=", "true"]
+            },
+            {
+              "type": "VarGlobal",
+              "parameters": ["g_EventBusQueue.has_signal(\"FlowerPlanted\")", "=", "true"]
+            },
+            {
+              "type": "VarGlobal",
+              "parameters": ["g_EventBusQueue.has_signal(\"FlowerHarvested\")", "=", "true"]
+            },
+            {
+              "type": "VarGlobal",
+              "parameters": ["g_EventBusQueue.has_signal(\"InventoryUpdated\")", "=", "true"]
+            },
+            {
+              "type": "VarGlobal",
+              "parameters": ["g_EventBusQueue.has_signal(\"EconomyGoldUpdated\")", "=", "true"]
+            }
+          ]
+        }
+      ],
+      "actions": [
+        {
+          "type": "ModVarGlobal",
+          "parameters": ["g_SaveManager.is_dirty", "=", "true"]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Comment",
+          "comment": "State modified -> Mark SaveDirty flag true. Actual disk write deferred to Sleep/SceneChange/ManualSave"
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Comment",
+      "comment": "ATOMIC SAVE HOOK: When triggered, write temporary JSON -> Validate checksum -> Commit file replacement"
+    }
+  ]
+}

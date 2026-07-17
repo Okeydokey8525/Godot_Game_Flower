@@ -1,0 +1,75 @@
+{
+  "manifest_version": 1,
+  "last_updated": "2026-07-17",
+  "content_groups": {
+    "flowers": [
+      "white_lily.json",
+      "rose.json",
+      "sunflower.json",
+      "lavender.json",
+      "tulip.json",
+      "daisy.json",
+      "iris.json",
+      "peony.json",
+      "lotus.json",
+      "orchid.json",
+      "carnation.json",
+      "bluebell.json"
+    ],
+    "npcs": [
+      "thomas.json",
+      "anna.json",
+      "marcus.json",
+      "elena.json"
+    ],
+    "dialogues": [
+      "thomas_intro.json",
+      "anna_shop.json",
+      "marcus_shop.json",
+      "elena_townhall.json"
+    ],
+    "quests": [
+      "quest_001_lily_request.json",
+      "quest_002_rose_delivery.json",
+      "quest_003_sunflower_harvest.json",
+      "quest_004_lavender_tea.json",
+      "quest_005_tulip_festival.json",
+      "quest_006_daisy_chain.json",
+      "quest_007_iris_pond.json",
+      "quest_008_peony_perfume.json",
+      "quest_009_sacred_lotus.json",
+      "quest_010_blacksmith_copper.json",
+      "quest_011_blacksmith_iron.json",
+      "quest_012_moonlight_orchid.json",
+      "quest_013_carnation_bouquet.json",
+      "quest_014_winter_bluebell.json",
+      "quest_015_grand_botanist.json"
+    ],
+    "items": [
+      "seed_white_lily.json",
+      "seed_rose.json",
+      "seed_sunflower.json",
+      "seed_lavender.json",
+      "seed_tulip.json",
+      "seed_daisy.json",
+      "seed_iris.json",
+      "seed_peony.json",
+      "seed_lotus.json",
+      "seed_orchid.json",
+      "seed_carnation.json",
+      "seed_bluebell.json",
+      "tool_watering_can.json"
+    ],
+    "weather": [
+      "weather_sunny.json",
+      "weather_rain.json",
+      "weather_cloudy.json"
+    ],
+    "seasons": [
+      "season_spring.json",
+      "season_summer.json",
+      "season_autumn.json",
+      "season_winter.json"
+    ]
+  }
+}

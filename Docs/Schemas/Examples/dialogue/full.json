@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "id": "dialogue_thomas_intro",
+  "display_name": "Thomas Tutorial Intro & Seed Gift",
+  "author": "Narrative Lead",
+  "last_modified": "2026-07-17",
+  "tags": ["tutorial", "intro", "gift"],
+  "speaker": "npc_thomas",
+  "conditions": [
+    { "ftue_state": "STATE_0_GREETING" }
+  ],
+  "lines": [
+    { "state": "STATE_0_GREETING", "text": "Oh, hello there young gardener! Welcome to our old village greenhouse." },
+    { "state": "STATE_1_RECEIVED_SEED", "text": "Here are 10 White Lily seeds and a sturdy watering can. Try planting one right over in that tilled soil!" }
+  ],
+  "rewards": [
+    { "item_id": "seed_white_lily", "count": 10 },
+    { "item_id": "tool_watering_can", "count": 1 }
+  ],
+  "flags": ["tutorial_seed_received"],
+  "next": "dialogue_thomas_wait_plant"
+}

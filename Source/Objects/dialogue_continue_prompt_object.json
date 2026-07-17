@@ -1,0 +1,17 @@
+{
+  "name": "DialogueContinuePromptObject",
+  "type": "TextObject::Text",
+  "variables": [
+    {
+      "name": "blink_timer",
+      "type": "number",
+      "value": 0.5
+    }
+  ],
+  "characterSize": 18,
+  "font": "",
+  "bold": true,
+  "italic": false,
+  "color": { "r": 255, "g": 255, "b": 100 },
+  "string": "▼ [Space]"
+}

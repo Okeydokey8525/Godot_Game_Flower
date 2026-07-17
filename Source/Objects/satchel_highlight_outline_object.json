@@ -1,0 +1,12 @@
+{
+  "name": "SatchelHighlightOutlineObject",
+  "type": "Sprite",
+  "variables": [],
+  "animations": [
+    {
+      "name": "Golden_Outline",
+      "directions": []
+    }
+  ],
+  "behaviors": []
+}

@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "id": "flower_iris",
+  "display_name": "Blue Iris",
+  "author": "Botanist Lead",
+  "last_modified": "2026-07-17",
+  "tags": ["summer", "elegant", "water_loving"],
+  "description": "An elegant deep blue blossom with intricate petals that thrives near moisture.",
+  "rarity": "Uncommon",
+  "growth_time": 1620,
+  "seed_item": "seed_iris",
+  "yield_item": "flower_iris",
+  "sprite": "flower_iris_bloom.png",
+  "sprout_sprite_resource": "flower_iris_sprout.png",
+  "sell_price": 105,
+  "festival_bonus": 25,
+  "favorite_season": "Summer",
+  "preferred_weather": "Rain"
+}

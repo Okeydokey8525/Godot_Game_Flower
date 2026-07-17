@@ -1,0 +1,138 @@
+{
+  "name": "UIAndUXPolishSystem",
+  "associatedLayout": "GreenhouseScene",
+  "events": [
+    {
+      "type": "BuiltinCommonInstructions::Comment",
+      "comment": "================================================================================\nSYSTEM: UI/UX & FORMATTING POLISH (PC1 QUALITY PASS #5)\nAUTHOR: Antigravity | LAST MODIFIED: 2026-07-17\nPURPOSE: Quản lý 3 trụ cột UI/UX: HUD Bar AM/PM Formatting & Gold Counter,\nDialogue Box Padding + Continue Arrow Prompt, và Satchel Highlight/Tooltip.\n================================================================================"
+    },
+    {
+      "type": "BuiltinCommonInstructions::Comment",
+      "comment": "BLOCK 1: HUD BAR AM/PM TIME FORMATTING & GOLD COUNTER SYNC"
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": "BuiltinCommonInstructions::AlwaysTrue"
+        }
+      ],
+      "actions": [
+        {
+          "type": "TextObject::SetString",
+          "parameters": [
+            "HUDTextObject",
+            "\"Day \" + ToString(g_WorldState.current_day) + \" | \" + ToString(g_WorldState.current_hour == 0 ? 12 : (g_WorldState.current_hour > 12 ? g_WorldState.current_hour - 12 : g_WorldState.current_hour)) + \":\" + (g_WorldState.current_minute < 10 ? \"0\" : \"\") + ToString(g_WorldState.current_minute) + \" \" + (g_WorldState.current_hour < 12 ? \"AM\" : \"PM\") + \" | Gold: \" + ToString(g_WorldState.player_gold) + \" G\""
+          ]
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Comment",
+      "comment": "BLOCK 2: DIALOGUE BOX PADDING & BLINKING CONTINUE ARROW PROMPT"
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": "VarInstance",
+          "parameters": ["DialogueBoxObject.is_open", "=", "true"]
+        }
+      ],
+      "actions": [
+        {
+          "type": "SetPosition",
+          "parameters": ["DialogueTextObject", "=", "DialogueBoxObject.X() + 16", "=", "DialogueBoxObject.Y() + 16"]
+        },
+        {
+          "type": "SetPosition",
+          "parameters": ["DialogueContinuePromptObject", "=", "DialogueBoxObject.X() + DialogueBoxObject.Width() - 80", "=", "DialogueBoxObject.Y() + DialogueBoxObject.Height() - 32"]
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": "VarInstance",
+          "parameters": ["DialogueBoxObject.is_open", "=", "true"]
+        },
+        {
+          "type": "VarInstance",
+          "parameters": ["DialogueContinuePromptObject.blink_timer", ">", "0"]
+        }
+      ],
+      "actions": [
+        {
+          "type": "ModVarInstance",
+          "parameters": ["DialogueContinuePromptObject.blink_timer", "-=", "TimeDelta()"]
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": "VarInstance",
+          "parameters": ["DialogueBoxObject.is_open", "=", "true"]
+        },
+        {
+          "type": "VarInstance",
+          "parameters": ["DialogueContinuePromptObject.blink_timer", "<=", "0"]
+        }
+      ],
+      "actions": [
+        {
+          "type": "ModVarInstance",
+          "parameters": ["DialogueContinuePromptObject.opacity", "=", "DialogueContinuePromptObject.opacity == 255 ? 60 : 255"]
+        },
+        {
+          "type": "ModVarInstance",
+          "parameters": ["DialogueContinuePromptObject.blink_timer", "=", "0.5"]
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Comment",
+      "comment": "BLOCK 3: SATCHEL ACTIVE SLOT HIGHLIGHT OUTLINE & TOOLTIP FEEDBACK"
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": "VarGlobal",
+          "parameters": ["g_SatchelActiveSlot", "=", "0"]
+        }
+      ],
+      "actions": [
+        {
+          "type": "SetPosition",
+          "parameters": ["SatchelHighlightOutlineObject", "=", "SatchelSlot_0.X() - 4", "=", "SatchelSlot_0.Y() - 4"]
+        },
+        {
+          "type": "TextObject::SetString",
+          "parameters": ["SatchelTooltipTextObject", "\"Active: White Lily Seeds [Plantable]\""]
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": "VarGlobal",
+          "parameters": ["g_SatchelActiveSlot", "=", "1"]
+        }
+      ],
+      "actions": [
+        {
+          "type": "SetPosition",
+          "parameters": ["SatchelHighlightOutlineObject", "=", "SatchelSlot_1.X() - 4", "=", "SatchelSlot_1.Y() - 4"]
+        },
+        {
+          "type": "TextObject::SetString",
+          "parameters": ["SatchelTooltipTextObject", "\"Active: Watering Can [Tool]\""]
+        }
+      ]
+    }
+  ]
+}

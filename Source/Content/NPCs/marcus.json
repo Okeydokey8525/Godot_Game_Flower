@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "id": "npc_marcus",
+  "display_name": "Marcus the Blacksmith",
+  "author": "Narrative Lead",
+  "last_modified": "2026-07-17",
+  "tags": ["blacksmith", "craftsman", "village"],
+  "portrait": "portrait_marcus_normal.png",
+  "default_schedule": {
+    "default": { "x": 640, "y": 256, "scene": "VillageScene" },
+    "morning": { "x": 640, "y": 256, "scene": "VillageScene" },
+    "evening": { "x": 350, "y": 180, "scene": "VillageTavernScene" }
+  },
+  "dialogue_root": "dialogue_marcus_shop",
+  "likes": ["item_iron_ore", "flower_carnation"],
+  "dislikes": ["item_weeds"],
+  "birthday": "Summer 22",
+  "relationship_events": [
+    { "hearts": 3, "dialogue_id": "dialogue_marcus_heart3" }
+  ]
+}

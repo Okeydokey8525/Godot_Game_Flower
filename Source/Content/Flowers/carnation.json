@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "id": "flower_carnation",
+  "display_name": "Pink Carnation",
+  "author": "Botanist Lead",
+  "last_modified": "2026-07-17",
+  "tags": ["autumn", "hardy", "festive"],
+  "description": "A hardy, ruffled flower that keeps its color even when autumn breezes turn crisp.",
+  "rarity": "Common",
+  "growth_time": 1080,
+  "seed_item": "seed_carnation",
+  "yield_item": "flower_carnation",
+  "sprite": "flower_carnation_bloom.png",
+  "sprout_sprite_resource": "flower_carnation_sprout.png",
+  "sell_price": 85,
+  "festival_bonus": 20,
+  "favorite_season": "Autumn",
+  "preferred_weather": "Sunny"
+}

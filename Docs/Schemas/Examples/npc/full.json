@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "id": "npc_anna",
+  "display_name": "Anna the Botanist",
+  "author": "Narrative Lead",
+  "last_modified": "2026-07-17",
+  "tags": ["shopkeeper", "botanist", "village"],
+  "portrait": "portrait_anna_normal.png",
+  "default_schedule": {
+    "default": { "x": 480, "y": 320, "scene": "GreenhouseScene" },
+    "morning": { "x": 480, "y": 320, "scene": "GreenhouseScene" },
+    "evening": { "x": 200, "y": 150, "scene": "VillageScene" }
+  },
+  "dialogue_root": "dialogue_anna_shop",
+  "likes": ["flower_rose", "flower_white_lily"],
+  "dislikes": ["item_weeds"],
+  "birthday": "Spring 14",
+  "relationship_events": [
+    { "hearts": 2, "dialogue_id": "dialogue_anna_heart2" },
+    { "hearts": 4, "dialogue_id": "dialogue_anna_heart4" }
+  ]
+}

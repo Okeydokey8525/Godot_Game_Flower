@@ -1,0 +1,30 @@
+{
+  "header": {
+    "save_version": "1.0.0",
+    "timestamp": 1784218000,
+    "debug_seed": 123456,
+    "checksum": "M0_BOOTSTRAP_VALID_SEED_123456"
+  },
+  "player_state": {
+    "current_scene": "GreenhouseScene",
+    "gold": 100,
+    "satchel_slots": [
+      { "slot_index": 0, "item_id": "item_watering_can", "quantity": 1 },
+      { "slot_index": 1, "item_id": "item_seed_white_lily", "quantity": 5 }
+    ]
+  },
+  "world_state": {
+    "current_day": 1,
+    "current_season": "Spring",
+    "current_hour": 6,
+    "current_minute": 0,
+    "current_weather_id": "weather_sunny"
+  },
+  "modules_state": {
+    "flower_instances": [],
+    "npc_relationships": [
+      { "npc_id": "npc_mayor_elena", "heart_points": 0 },
+      { "npc_id": "npc_botanist_thomas", "heart_points": 50 }
+    ]
+  }
+}

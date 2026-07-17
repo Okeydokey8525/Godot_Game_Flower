@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "id": "flower_white_lily",
+  "display_name": "White Lily",
+  "author": "Designer",
+  "last_modified": "2026-07-17",
+  "tags": ["spring", "starter"],
+  "growth_time": 1080,
+  "seed_item": "seed_white_lily",
+  "yield_item": "flower_white_lily",
+  "sprite": "flower_white_lily.png"
+}

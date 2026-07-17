@@ -1,0 +1,16 @@
+{
+  "tutorial_finished": true,
+  "current_day": 1,
+  "current_hour": 9,
+  "current_minute": 30,
+  "player_gold": 50,
+  "player_stamina": 100,
+  "ftue_state": "STATE_4_COMPLETED",
+  "inventory_items": [
+    { "slot": 0, "id": "seed_white_lily", "count": 5 },
+    { "slot": 1, "id": "tool_watering_can", "count": 1 }
+  ],
+  "flower_instances": [
+    { "x": 320, "y": 240, "flower_id": "flower_white_lily", "stage": "Sprout", "watered": true }
+  ]
+}

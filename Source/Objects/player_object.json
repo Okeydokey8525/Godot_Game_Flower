@@ -1,0 +1,112 @@
+{
+  "name": "PlayerObject",
+  "type": "Sprite",
+  "variables": [
+    {
+      "name": "speed",
+      "type": "number",
+      "value": 150
+    },
+    {
+      "name": "facing_direction",
+      "type": "number",
+      "value": 0
+    },
+    {
+      "name": "is_moving",
+      "type": "boolean",
+      "value": false
+    },
+    {
+      "name": "is_busy",
+      "type": "boolean",
+      "value": false
+    },
+    {
+      "name": "action_lock_timer",
+      "type": "number",
+      "value": 0
+    },
+    {
+      "name": "selected_slot",
+      "type": "number",
+      "value": 0
+    },
+    {
+      "name": "selected_item_id",
+      "type": "string",
+      "value": "item_seed_white_lily"
+    },
+    {
+      "name": "item_type",
+      "type": "string",
+      "value": "Seed"
+    },
+    {
+      "name": "use_behavior",
+      "type": "string",
+      "value": "Plant"
+    }
+  ],
+  "animations": [
+    {
+      "name": "Idle_South",
+      "directions": []
+    },
+    {
+      "name": "Idle_North",
+      "directions": []
+    },
+    {
+      "name": "Idle_East",
+      "directions": []
+    },
+    {
+      "name": "Idle_West",
+      "directions": []
+    },
+    {
+      "name": "Walk_South",
+      "directions": []
+    },
+    {
+      "name": "Walk_North",
+      "directions": []
+    },
+    {
+      "name": "Walk_East",
+      "directions": []
+    },
+    {
+      "name": "Walk_West",
+      "directions": []
+    },
+    {
+      "name": "Water_South",
+      "directions": []
+    },
+    {
+      "name": "Water_North",
+      "directions": []
+    },
+    {
+      "name": "Water_East",
+      "directions": []
+    },
+    {
+      "name": "Water_West",
+      "directions": []
+    }
+  ],
+  "behaviors": [
+    {
+      "name": "TopDownMovement",
+      "type": "TopDownMovementBehavior::TopDownMovementBehavior",
+      "acceleration": 600,
+      "deceleration": 600,
+      "maxSpeed": 150,
+      "allowDiagonals": true,
+      "rotateObject": false
+    }
+  ]
+}

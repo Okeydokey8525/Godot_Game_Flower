@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "id": "flower_golden_lotus",
+  "display_name": "Golden Lotus",
+  "author": "Botanist Lead",
+  "last_modified": "2026-07-17",
+  "tags": ["legendary", "rare", "festival"],
+  "description": "A legendary flower that glows faintly in the moonlight. Said to bring eternal luck.",
+  "rarity": "Legendary",
+  "growth_time": 2880,
+  "seed_item": "seed_golden_lotus",
+  "yield_item": "flower_golden_lotus",
+  "sprite": "flower_golden_lotus.png",
+  "sell_price": 500,
+  "festival_bonus": 250,
+  "favorite_season": "All"
+}

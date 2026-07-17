@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "id": "quest_your_quest_id",
+  "display_name": "Your Quest Display Name",
+  "author": "Designer Name",
+  "last_modified": "2026-07-17",
+  "tags": ["starter", "request"],
+  "title": "Your Quest Title Header",
+  "steps": [
+    { "type": "Harvest", "target_id": "flower_white_lily", "count": 1 }
+  ],
+  "completion": { "npc_id": "npc_thomas" },
+  "rewards": [
+    { "gold": 100 }
+  ],
+  "repeatable": false,
+  "season": "All",
+  "dependencies": []
+}

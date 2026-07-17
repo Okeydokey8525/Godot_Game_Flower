@@ -1,0 +1,79 @@
+{
+  "name": "FlowerInstanceObject",
+  "type": "Sprite",
+  "variables": [
+    {
+      "name": "flower_ref_id",
+      "type": "string",
+      "value": "flower_white_lily"
+    },
+    {
+      "name": "grid_x",
+      "type": "number",
+      "value": 0
+    },
+    {
+      "name": "grid_y",
+      "type": "number",
+      "value": 0
+    },
+    {
+      "name": "stage",
+      "type": "number",
+      "value": 0
+    },
+    {
+      "name": "accumulated_minutes",
+      "type": "number",
+      "value": 0
+    },
+    {
+      "name": "moisture_level",
+      "type": "number",
+      "value": 100
+    },
+    {
+      "name": "is_stasis",
+      "type": "boolean",
+      "value": false
+    },
+    {
+      "name": "interactable_type",
+      "type": "string",
+      "value": "Flower"
+    },
+    {
+      "name": "interaction_priority",
+      "type": "number",
+      "value": 20
+    },
+    {
+      "name": "interaction_range",
+      "type": "number",
+      "value": 32
+    }
+  ],
+  "animations": [
+    {
+      "name": "Stage0_Seed",
+      "directions": []
+    },
+    {
+      "name": "Stage1_Sprout",
+      "directions": []
+    },
+    {
+      "name": "Stage2_Budding",
+      "directions": []
+    },
+    {
+      "name": "Stage3_Blooming",
+      "directions": []
+    },
+    {
+      "name": "Stasis_Dry",
+      "directions": []
+    }
+  ],
+  "behaviors": []
+}

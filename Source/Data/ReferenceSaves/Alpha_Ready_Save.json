@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "milestone": "M4.2A_Simulation_Accepted",
+  "build": "0.4.2",
+  "balance_pass": "1.0.0-STABLE",
+  "timestamp": "2026-07-17",
+  "alpha_status": "NOT_YET — Pending M4.2B Economy, M4.2C Performance, and M4.2D Human QA Playtests",
+  "player": {
+    "name": "Botanist Lead",
+    "stamina": 100,
+    "max_stamina": 100,
+    "gold": 500,
+    "current_day": 1,
+    "current_season": "Spring",
+    "unlocked_tools": [
+      "tool_watering_can"
+    ]
+  },
+  "satchel": {
+    "slots": [
+      { "item_id": "seed_white_lily", "count": 5 },
+      { "item_id": "seed_daisy", "count": 10 },
+      { "item_id": "seed_tulip", "count": 5 }
+    ]
+  },
+  "completed_quests": [
+    "quest_001_lily_request"
+  ],
+  "simulation_kpi_verification": {
+    "telemetry_source": "Automated_Simulation_Script (run_telemetry_sim.py — 50 Runs)",
+    "ftue_completion": "100.0%",
+    "seasonal_net_gold": {
+      "Spring": 3321,
+      "Summer": 6369,
+      "Autumn": 9099,
+      "Winter": 16533
+    },
+    "flower_diversity": "Balanced across 12 flowers (7.6% - 8.8%)",
+    "quest_completion_rate": "98.0% - 100.0%",
+    "stable_fps": 59.78
+  },
+  "pending_human_qa_metrics": {
+    "ftue_avg_time_minutes": "Pending M4.2B/D",
+    "stamina_left_before_sleep": "Pending M4.2B/D",
+    "watered_crops_per_day": "Pending M4.2B/D",
+    "quest_abandon_rate": "Pending M4.2B/D",
+    "npc_interaction_per_day": "Pending M4.2B/D",
+    "economy_source_breakdown": "Pending M4.2B/D"
+  }
+}

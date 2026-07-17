@@ -1,0 +1,44 @@
+{
+  "b": 35,
+  "g": 40,
+  "r": 30,
+  "standardSortMethod": true,
+  "stopSoundsOnStartup": true,
+  "title": "BootScene",
+  "vSync": true,
+  "uiSettings": {
+    "grid": false,
+    "gridType": "rectangular",
+    "gridWidth": 32,
+    "gridHeight": 32,
+    "gridOffsetX": 0,
+    "gridOffsetY": 0,
+    "gridColor": 10401023,
+    "gridAlpha": 0.8,
+    "snap": true,
+    "zoomFactor": 1.0
+  },
+  "objectsGroups": [],
+  "variables": [],
+  "instances": [],
+  "layers": [
+    {
+      "name": "",
+      "visibility": true,
+      "cameras": [
+        {
+          "defaultSize": true,
+          "defaultViewport": true,
+          "height": 0,
+          "viewportBottom": 1,
+          "viewportLeft": 0,
+          "viewportRight": 1,
+          "viewportTop": 0,
+          "width": 0
+        }
+      ],
+      "effects": []
+    }
+  ],
+  "behaviorsSharedData": []
+}

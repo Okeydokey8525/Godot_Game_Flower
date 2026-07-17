@@ -1,0 +1,63 @@
+{
+  "name": "TimeTicker",
+  "associatedLayout": "BootScene",
+  "events": [
+    {
+      "type": "BuiltinCommonInstructions::Comment",
+      "comment": "================================================================================\nSINGLETON 03: TIME TICKER\nPURPOSE: Quản lý nhịp đồng hồ thời gian thế giới (Minute / Hour / Day / Season).\n================================================================================"
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": "BuiltinCommonInstructions::AtBeginningOfScene"
+        }
+      ],
+      "actions": [
+        {
+          "type": "ModVarGlobal",
+          "parameters": ["g_TimeTicker.is_paused", "=", "false"]
+        },
+        {
+          "type": "ModVarGlobal",
+          "parameters": ["g_TimeTicker.current_minute", "=", "0"]
+        },
+        {
+          "type": "ModVarGlobal",
+          "parameters": ["g_TimeTicker.current_hour", "=", "6"]
+        },
+        {
+          "type": "ModVarGlobal",
+          "parameters": ["g_TimeTicker.current_day", "=", "1"]
+        },
+        {
+          "type": "ModVarGlobal",
+          "parameters": ["g_TimeTicker.current_season", "=", "\"Spring\""]
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": "VarGlobal",
+          "parameters": ["g_TimeTicker.is_paused", "=", "false"]
+        },
+        {
+          "type": "Timer",
+          "parameters": ["\"WorldClockTick\"", ">=", "1.0"]
+        }
+      ],
+      "actions": [
+        {
+          "type": "ResetTimer",
+          "parameters": ["\"WorldClockTick\""]
+        },
+        {
+          "type": "ModVarGlobal",
+          "parameters": ["g_TimeTicker.current_minute", "+", "10"]
+        }
+      ]
+    }
+  ]
+}

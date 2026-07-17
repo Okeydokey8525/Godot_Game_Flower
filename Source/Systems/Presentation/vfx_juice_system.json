@@ -1,0 +1,269 @@
+{
+  "name": "VFXAndJuiceSystem",
+  "associatedLayout": "GreenhouseScene",
+  "events": [
+    {
+      "type": "BuiltinCommonInstructions::Comment",
+      "comment": "================================================================================\nSYSTEM: VFX & JUICE POLISH (PC1 QUALITY PASS #4)\nAUTHOR: Antigravity | LAST MODIFIED: 2026-07-17\nPURPOSE: Quản lý 3 trụ cột VFX: Dust Puff dưới chân khi đi lại, Water Splash &\nBloom Sparkles khi làm vườn, Gold Coin Pop floating text và Subtle Screen Shake.\n================================================================================"
+    },
+    {
+      "type": "BuiltinCommonInstructions::Comment",
+      "comment": "BLOCK 1: WALKING DUST PUFF SPAWN (Synchronized with footstep_timer <= 0)"
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": "VarInstance",
+          "parameters": ["PlayerObject.is_moving", "=", "true"]
+        },
+        {
+          "type": "VarInstance",
+          "parameters": ["PlayerObject.footstep_timer", "<=", "0"]
+        }
+      ],
+      "actions": [
+        {
+          "type": "CreateObject",
+          "parameters": ["DustParticleObject", "Plants", "PlayerObject.X() + 16", "PlayerObject.Y() + 48"]
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Comment",
+      "comment": "BLOCK 2: WATER SPLASH, BLOOM SPARKLES & GOLD COIN POP SPAWN ON EVENTS"
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": "VarGlobal",
+          "parameters": ["g_EventBusQueue.has_signal(\"InteractSoil\")", "=", "true"]
+        }
+      ],
+      "actions": [
+        {
+          "type": "CreateObject",
+          "parameters": ["WaterSplashParticleObject", "Plants", "InteractionSensorObject.X()", "InteractionSensorObject.Y()"]
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": "VarGlobal",
+          "parameters": ["g_EventBusQueue.has_signal(\"FlowerHarvested\")", "=", "true"]
+        }
+      ],
+      "actions": [
+        {
+          "type": "CreateObject",
+          "parameters": ["BloomSparkleParticleObject", "Plants", "InteractionSensorObject.X()", "InteractionSensorObject.Y()"]
+        },
+        {
+          "type": "CreateObject",
+          "parameters": ["GoldCoinPopObject", "HUD", "PlayerObject.X()", "PlayerObject.Y() - 32"]
+        },
+        {
+          "type": "ModVarGlobal",
+          "parameters": ["g_CameraShakeTimer", "=", "0.15"]
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": "VarGlobal",
+          "parameters": ["g_EventBusQueue.has_signal(\"EconomyAddGoldRequest\")", "=", "true"]
+        }
+      ],
+      "actions": [
+        {
+          "type": "CreateObject",
+          "parameters": ["GoldCoinPopObject", "HUD", "PlayerObject.X()", "PlayerObject.Y() - 40"]
+        },
+        {
+          "type": "ModVarGlobal",
+          "parameters": ["g_CameraShakeTimer", "=", "0.15"]
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Comment",
+      "comment": "BLOCK 3: LIFECYCLE MANAGEMENT (Floating Up, Fading Out & Cleanup)"
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": "VarInstance",
+          "parameters": ["DustParticleObject.life_timer", ">", "0"]
+        }
+      ],
+      "actions": [
+        {
+          "type": "ModVarInstance",
+          "parameters": ["DustParticleObject.life_timer", "-=", "TimeDelta()"]
+        },
+        {
+          "type": "ModVarInstance",
+          "parameters": ["DustParticleObject.opacity", "-=", "TimeDelta() * 400"]
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": "VarInstance",
+          "parameters": ["DustParticleObject.life_timer", "<=", "0"]
+        }
+      ],
+      "actions": [
+        {
+          "type": "DeleteObject",
+          "parameters": ["DustParticleObject"]
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": "VarInstance",
+          "parameters": ["WaterSplashParticleObject.life_timer", ">", "0"]
+        }
+      ],
+      "actions": [
+        {
+          "type": "ModVarInstance",
+          "parameters": ["WaterSplashParticleObject.life_timer", "-=", "TimeDelta()"]
+        },
+        {
+          "type": "ModVarInstance",
+          "parameters": ["WaterSplashParticleObject.opacity", "-=", "TimeDelta() * 400"]
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": "VarInstance",
+          "parameters": ["WaterSplashParticleObject.life_timer", "<=", "0"]
+        }
+      ],
+      "actions": [
+        {
+          "type": "DeleteObject",
+          "parameters": ["WaterSplashParticleObject"]
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": "VarInstance",
+          "parameters": ["BloomSparkleParticleObject.life_timer", ">", "0"]
+        }
+      ],
+      "actions": [
+        {
+          "type": "ModVarInstance",
+          "parameters": ["BloomSparkleParticleObject.life_timer", "-=", "TimeDelta()"]
+        },
+        {
+          "type": "SetY",
+          "parameters": ["BloomSparkleParticleObject", "=", "BloomSparkleParticleObject.Y() - TimeDelta() * 30"]
+        },
+        {
+          "type": "ModVarInstance",
+          "parameters": ["BloomSparkleParticleObject.opacity", "-=", "TimeDelta() * 300"]
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": "VarInstance",
+          "parameters": ["BloomSparkleParticleObject.life_timer", "<=", "0"]
+        }
+      ],
+      "actions": [
+        {
+          "type": "DeleteObject",
+          "parameters": ["BloomSparkleParticleObject"]
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": "VarInstance",
+          "parameters": ["GoldCoinPopObject.life_timer", ">", "0"]
+        }
+      ],
+      "actions": [
+        {
+          "type": "ModVarInstance",
+          "parameters": ["GoldCoinPopObject.life_timer", "-=", "TimeDelta()"]
+        },
+        {
+          "type": "SetY",
+          "parameters": ["GoldCoinPopObject", "=", "GoldCoinPopObject.Y() - TimeDelta() * 45"]
+        },
+        {
+          "type": "ModVarInstance",
+          "parameters": ["GoldCoinPopObject.opacity", "-=", "TimeDelta() * 255"]
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": "VarInstance",
+          "parameters": ["GoldCoinPopObject.life_timer", "<=", "0"]
+        }
+      ],
+      "actions": [
+        {
+          "type": "DeleteObject",
+          "parameters": ["GoldCoinPopObject"]
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Comment",
+      "comment": "BLOCK 4: SUBTLE SCREEN SHAKE EXECUTION (Magnitude 3px jitter when g_CameraShakeTimer > 0)"
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": "VarGlobal",
+          "parameters": ["g_CameraShakeTimer", ">", "0"]
+        }
+      ],
+      "actions": [
+        {
+          "type": "ModVarGlobal",
+          "parameters": ["g_CameraShakeTimer", "-=", "TimeDelta()"]
+        },
+        {
+          "type": "Camera::SetCameraX",
+          "parameters": ["", "CameraX(\"\", 0) + RandomInRange(-3, 3)", "", "0"]
+        },
+        {
+          "type": "Camera::SetCameraY",
+          "parameters": ["", "CameraY(\"\", 0) + RandomInRange(-3, 3)", "", "0"]
+        }
+      ]
+    }
+  ]
+}

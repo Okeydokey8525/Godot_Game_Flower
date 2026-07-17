@@ -1,0 +1,27 @@
+{
+  "name": "ShippingBinObject",
+  "type": "Sprite",
+  "variables": [
+    {
+      "name": "interactable_type",
+      "type": "string",
+      "value": "ShippingBin"
+    },
+    {
+      "name": "interaction_priority",
+      "type": "number",
+      "value": 12
+    }
+  ],
+  "animations": [
+    {
+      "name": "Bin_Closed",
+      "directions": []
+    },
+    {
+      "name": "Bin_Open",
+      "directions": []
+    }
+  ],
+  "behaviors": []
+}

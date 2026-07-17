@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "version": "1.0.0",
+  "npcs": [
+    {
+      "npc_id": "npc_mayor_elena",
+      "name": "Mayor Elena",
+      "loved_items": ["item_flower_red_rose", "item_flower_golden_sunflower"],
+      "hated_items": [],
+      "default_scene": "VillageScene",
+      "schedule_profile": "schedule_mayor"
+    },
+    {
+      "npc_id": "npc_botanist_thomas",
+      "name": "Botanist Thomas",
+      "loved_items": ["item_flower_white_lily", "item_flower_blue_lavender"],
+      "hated_items": [],
+      "default_scene": "GreenhouseScene",
+      "schedule_profile": "schedule_botanist"
+    }
+  ]
+}

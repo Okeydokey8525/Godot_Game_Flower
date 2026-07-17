@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "id": "quest_011_blacksmith_iron",
+  "display_name": "Autumn Carnation Offerings",
+  "author": "Design Lead",
+  "last_modified": "2026-07-17",
+  "tags": ["harvest", "autumn", "marcus"],
+  "title": "Carnations for the Blacksmith's Forge Altar",
+  "steps": [
+    { "type": "Harvest", "target_id": "flower_carnation", "count": 5 }
+  ],
+  "completion": { "npc_id": "npc_marcus" },
+  "rewards": [
+    { "gold": 350 }
+  ],
+  "repeatable": false,
+  "season": "Autumn",
+  "dependencies": ["quest_010_blacksmith_copper"]
+}

@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "id": "dialogue_anna_shop",
+  "display_name": "Anna Seed Shop & Botanist Advice",
+  "author": "Narrative Lead",
+  "last_modified": "2026-07-17",
+  "tags": ["shop", "botanist", "advice"],
+  "speaker": "npc_anna",
+  "conditions": [],
+  "lines": [
+    {
+      "state": "SHOP_INTRO",
+      "text": "Welcome to Anna's Botanical Exchange! We have fresh Lily, Rose, and Sunflower seeds in stock today.",
+      "emotion": "Happy",
+      "next_state": "SHOP_MENU"
+    },
+    {
+      "state": "SHOP_MENU",
+      "text": "Remember: Roses love the brisk Spring breeze, while Sunflowers yield massive gold in the peak Summer heat!",
+      "emotion": "Normal",
+      "next_state": "SHOP_DONE"
+    }
+  ],
+  "rewards": [],
+  "flags": ["visited_anna_shop"],
+  "next": ""
+}

@@ -1,0 +1,79 @@
+{
+  "name": "WeatherSystem",
+  "associatedLayout": "GreenhouseScene",
+  "events": [
+    {
+      "type": "BuiltinCommonInstructions::Comment",
+      "comment": "================================================================================\nSYSTEM: WEATHER & TIME CYCLE SYSTEM (MILESTONE M2)\nAUTHOR: Antigravity | LAST MODIFIED: 2026-07-16\nPURPOSE: Lắng nghe DayAdvanced/TimeMinuteTicked, tính toán thời tiết theo seed (ADR-005),\nđổi màu ánh sáng nhà kính & phát tín hiệu WeatherChanged theo đúng Simulation Order.\n================================================================================"
+    },
+    {
+      "type": "BuiltinCommonInstructions::Comment",
+      "comment": "BLOCK 1: DAILY WEATHER EVALUATION (DayAdvanced Hook — Step 2 in Simulation Order)"
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": "VarGlobal",
+          "parameters": ["g_EventBusQueue.has_signal(\"DayAdvanced\")", "=", "true"]
+        }
+      ],
+      "actions": [
+        {
+          "type": "BuiltinCommonInstructions::Comment",
+          "comment": "Calculate daily weather using WeightedRandom(weather_profiles.json, g_WorldSeed + current_day)"
+        },
+        {
+          "type": "BuiltinCommonInstructions::Comment",
+          "comment": "Set WeatherControllerObject.current_weather_id and is_raining flag without hardcoded checks"
+        },
+        {
+          "type": "BuiltinCommonInstructions::Comment",
+          "comment": "Emit EventBus.Emit(\"WeatherChanged\", { weather_id, is_raining, moisture_modifier }) so FlowerSystem receives exact 100% moisture if raining"
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Comment",
+      "comment": "BLOCK 2: TIME-SLICED LIGHT TINT TRANSITION (TimeMinuteTicked Hook)"
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": "VarGlobal",
+          "parameters": ["g_EventBusQueue.has_signal(\"TimeMinuteTicked\")", "=", "true"]
+        }
+      ],
+      "actions": [
+        {
+          "type": "BuiltinCommonInstructions::Comment",
+          "comment": "Evaluate current_hour: If 18:00, target_tint = #FFD8B0 (Sunset). If 22:00, target_tint = #202840 (Night). If 06:00, target_tint = #FFFFFF (Morning)"
+        },
+        {
+          "type": "BuiltinCommonInstructions::Comment",
+          "comment": "Trigger Tween color transition on LightTintLayerObject over 1.5 seconds"
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Comment",
+      "comment": "BLOCK 3: SEASONAL TRANSITION CHECK (SeasonAdvanced Hook)"
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": "VarGlobal",
+          "parameters": ["g_EventBusQueue.has_signal(\"SeasonAdvanced\")", "=", "true"]
+        }
+      ],
+      "actions": [
+        {
+          "type": "BuiltinCommonInstructions::Comment",
+          "comment": "Reload seasonal weather weight profile table from weather_profiles.json -> Play BGM Seasonal Jingle"
+        }
+      ]
+    }
+  ]
+}

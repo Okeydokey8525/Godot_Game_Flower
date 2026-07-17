@@ -1,0 +1,140 @@
+{
+  "name": "DailyLoopSystem",
+  "associatedLayout": "GreenhouseScene",
+  "events": [
+    {
+      "type": "BuiltinCommonInstructions::Comment",
+      "comment": "================================================================================\nSYSTEM: DAILY LOOP SYSTEM (SPRINT 3.6 — 6 FEATURES VERTICAL SLICE)\nAUTHOR: Antigravity | LAST MODIFIED: 2026-07-17\nPURPOSE: Quản lý trọn vẹn 6 feature: Clock, Light Tint, Bed Sleep, Fade Screen,\nAutosave (chỉ khi is_dirty==true), và màn hình tổng kết Daily Summary.\n================================================================================"
+    },
+    {
+      "type": "BuiltinCommonInstructions::Comment",
+      "comment": "BLOCK 1: FEATURE 1 (CLOCK TICKER & HUD DISPLAY)"
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": "VarGlobal",
+          "parameters": ["g_TimeTicker.is_paused", "=", "false"]
+        }
+      ],
+      "actions": [
+        {
+          "type": "BuiltinCommonInstructions::Comment",
+          "comment": "Update current_minute and current_hour -> sync formatted time string to HUDBarObject"
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Comment",
+      "comment": "BLOCK 2: FEATURE 2 (DYNAMIC LIGHTING TINT: Morning -> Warm -> Orange -> Blue)"
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": "BuiltinCommonInstructions::AlwaysTrue"
+        }
+      ],
+      "actions": [
+        {
+          "type": "BuiltinCommonInstructions::Comment",
+          "comment": "Check g_WorldState.current_hour: 06-11 (Morning Bright), 11-16 (Warm), 16-20 (Sunset Orange), 20-06 (Night Blue)"
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Comment",
+      "comment": "BLOCK 3: FEATURE 3 (BED INTERACTION: [E] Sleep)"
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": "VarGlobal",
+          "parameters": ["g_EventBusQueue.has_signal(\"InteractBed\")", "=", "true"]
+        }
+      ],
+      "actions": [
+        {
+          "type": "ModVarInstance",
+          "parameters": ["BlackFadeObject.fade_state", "=", "\"FadeOut\""]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Comment",
+          "comment": "Player went to bed -> Start screen black fade out transition"
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Comment",
+      "comment": "BLOCK 4: FEATURE 4 & 5 (FADE OUT -> ADVANCE DAY -> AUTOSAVE IF DIRTY)"
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": "VarInstance",
+          "parameters": ["BlackFadeObject.fade_state", "=", "\"FadeOut\""]
+        },
+        {
+          "type": "VarInstance",
+          "parameters": ["BlackFadeObject.opacity", ">=", "255"]
+        }
+      ],
+      "actions": [
+        {
+          "type": "ModVarGlobal",
+          "parameters": ["g_WorldState.current_day", "+=", "1"]
+        },
+        {
+          "type": "ModVarGlobal",
+          "parameters": ["g_WorldState.current_hour", "=", "6"]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Comment",
+          "comment": "Feature 5 (Autosave): If g_SaveManager.is_dirty == true -> Execute atomic disk write SaveManager.Save() and reset is_dirty = false!"
+        },
+        {
+          "type": "ModVarInstance",
+          "parameters": ["DailySummaryBoxObject.is_open", "=", "true"]
+        },
+        {
+          "type": "ModVarInstance",
+          "parameters": ["BlackFadeObject.fade_state", "=", "\"SummaryWaiting\""]
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Comment",
+      "comment": "BLOCK 5: FEATURE 6 (DAILY SUMMARY SCREEN -> WAKE UP ON SPACE)"
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": "VarInstance",
+          "parameters": ["DailySummaryBoxObject.is_open", "=", "true"]
+        },
+        {
+          "type": "Keyboard::KeyReleased",
+          "parameters": ["", "\"Space\""]
+        }
+      ],
+      "actions": [
+        {
+          "type": "ModVarInstance",
+          "parameters": ["DailySummaryBoxObject.is_open", "=", "false"]
+        },
+        {
+          "type": "ModVarInstance",
+          "parameters": ["BlackFadeObject.fade_state", "=", "\"FadeIn\""]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Comment",
+          "comment": "Player reviewed Daily Summary and pressed Space -> Fade in screen -> Wake up to a fresh new morning!"
+        }
+      ]
+    }
+  ]
+}

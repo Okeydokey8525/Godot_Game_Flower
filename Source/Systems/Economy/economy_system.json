@@ -1,0 +1,57 @@
+{
+  "name": "EconomySystem",
+  "associatedLayout": "GreenhouseScene",
+  "events": [
+    {
+      "type": "BuiltinCommonInstructions::Comment",
+      "comment": "================================================================================\nSYSTEM: ECONOMY SYSTEM (SPRINT 3.4.5 — GOLD TRANSACTION & WALLET DECOUPLING)\nAUTHOR: Antigravity | LAST MODIFIED: 2026-07-16\nPURPOSE: Quản lý toàn bộ giao dịch Gold (Wallet). Cấm tuyệt đối hệ thống khác gán\ngold += 50. Lắng nghe EconomyAddGoldRequest và FlowerHarvested. Phát EconomyGoldUpdated.\n================================================================================"
+    },
+    {
+      "type": "BuiltinCommonInstructions::Comment",
+      "comment": "BLOCK 1: GOLD ADDITION TRANSACTION (e.g., FlowerHarvested / Quest Reward)"
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": "BuiltinCommonInstructions::Or",
+          "conditions": [
+            {
+              "type": "VarGlobal",
+              "parameters": ["g_EventBusQueue.has_signal(\"EconomyAddGoldRequest\")", "=", "true"]
+            },
+            {
+              "type": "VarGlobal",
+              "parameters": ["g_EventBusQueue.has_signal(\"FlowerHarvested\")", "=", "true"]
+            }
+          ]
+        }
+      ],
+      "actions": [
+        {
+          "type": "BuiltinCommonInstructions::Comment",
+          "comment": "If FlowerHarvested, add gold_earned from payload. If EconomyAddGoldRequest, add requested gold -> Emit EconomyGoldUpdated & MarkSaveDirty"
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Comment",
+      "comment": "BLOCK 2: GOLD DEDUCTION TRANSACTION (e.g., Shop Purchase)"
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": "VarGlobal",
+          "parameters": ["g_EventBusQueue.has_signal(\"EconomyDeductGoldRequest\")", "=", "true"]
+        }
+      ],
+      "actions": [
+        {
+          "type": "BuiltinCommonInstructions::Comment",
+          "comment": "Check balance >= requested deduction -> Deduct -> Emit EconomyGoldUpdated & MarkSaveDirty"
+        }
+      ]
+    }
+  ]
+}

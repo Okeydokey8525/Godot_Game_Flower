@@ -1,0 +1,32 @@
+{
+  "name": "ShippingUIBoxObject",
+  "type": "TextObject::Text",
+  "variables": [
+    {
+      "name": "is_open",
+      "type": "boolean",
+      "value": false
+    },
+    {
+      "name": "pending_item_id",
+      "type": "string",
+      "value": "flower_white_lily"
+    },
+    {
+      "name": "pending_quantity",
+      "type": "number",
+      "value": 0
+    },
+    {
+      "name": "pending_total_gold",
+      "type": "number",
+      "value": 0
+    }
+  ],
+  "characterSize": 20,
+  "font": "",
+  "bold": true,
+  "italic": false,
+  "color": { "r": 255, "g": 250, "b": 205 },
+  "string": "Shipping Bin\nWhite Lily x5\n50 Gold each\nTotal: 250 Gold\n\n[Space] Confirm Shipment | [Esc] Cancel"
+}

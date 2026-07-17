@@ -1,0 +1,32 @@
+{
+  "catalog_version": "1.0.0-M3",
+  "items": [
+    {
+      "id": "item_seed_white_lily",
+      "display_name": "White Lily Seed",
+      "item_type": "Seed",
+      "interaction_type": "Soil",
+      "stack_size": 99,
+      "flower_ref_id": "flower_white_lily",
+      "use_behavior": "Plant"
+    },
+    {
+      "id": "item_watering_can",
+      "display_name": "Standard Watering Can",
+      "item_type": "Tool",
+      "interaction_type": "Soil",
+      "stack_size": 1,
+      "moisture_restored": 100,
+      "use_behavior": "Water"
+    },
+    {
+      "id": "item_harvest_white_lily",
+      "display_name": "Harvested White Lily",
+      "item_type": "Yield",
+      "interaction_type": "None",
+      "stack_size": 99,
+      "sell_price": 50,
+      "use_behavior": "Sell"
+    }
+  ]
+}

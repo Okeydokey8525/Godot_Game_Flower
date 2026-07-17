@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "id": "season_winter",
+  "display_name": "Frosty Winter",
+  "author": "System Lead",
+  "last_modified": "2026-07-17",
+  "tags": ["season", "winter"],
+  "season_order": 4,
+  "default_weather": "weather_cloudy",
+  "allowed_weather": ["weather_cloudy", "weather_rain"],
+  "crop_growth_multiplier": 0.8,
+  "water_evaporation_rate": 0.5,
+  "ambient_color_hex": "#D6EAF8"
+}

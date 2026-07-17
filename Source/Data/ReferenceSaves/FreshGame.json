@@ -1,0 +1,11 @@
+{
+  "tutorial_finished": false,
+  "current_day": 1,
+  "current_hour": 6,
+  "current_minute": 0,
+  "player_gold": 0,
+  "player_stamina": 100,
+  "ftue_state": "STATE_0_GREETING",
+  "inventory_items": [],
+  "flower_instances": []
+}

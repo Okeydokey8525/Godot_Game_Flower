@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "id": "quest_simple_delivery",
+  "display_name": "Simple Lily Delivery",
+  "author": "Design Team",
+  "last_modified": "2026-07-17",
+  "tags": ["simple", "delivery"],
+  "title": "Thomas's Lily Order",
+  "steps": [
+    { "type": "Harvest", "target_id": "flower_white_lily", "count": 1 }
+  ],
+  "completion": { "npc_id": "npc_thomas" }
+}

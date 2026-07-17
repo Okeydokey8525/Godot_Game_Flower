@@ -1,0 +1,37 @@
+{
+  "name": "InventorySlotUIObject",
+  "type": "Sprite",
+  "variables": [
+    {
+      "name": "slot_index",
+      "type": "number",
+      "value": 0
+    },
+    {
+      "name": "item_id",
+      "type": "string",
+      "value": ""
+    },
+    {
+      "name": "quantity",
+      "type": "number",
+      "value": 0
+    },
+    {
+      "name": "is_selected",
+      "type": "boolean",
+      "value": false
+    }
+  ],
+  "animations": [
+    {
+      "name": "Slot_Unselected",
+      "directions": []
+    },
+    {
+      "name": "Slot_Selected",
+      "directions": []
+    }
+  ],
+  "behaviors": []
+}

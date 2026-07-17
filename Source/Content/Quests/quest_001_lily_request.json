@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "id": "quest_001_lily_request",
+  "title": "Thomas's Greenhouse Restoration",
+  "giver_npc_id": "npc_thomas",
+  "description": "Plant, water, and harvest your first White Lily, then ship it through the Shipping Bin.",
+  "required_item_id": "flower_white_lily",
+  "required_count": 1,
+  "reward_gold": 100,
+  "reward_item_id": "seed_white_lily",
+  "reward_item_count": 5
+}

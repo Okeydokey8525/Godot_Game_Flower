@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "id": "flower_white_lily",
+  "display_name": "White Lily",
+  "growth_time": 1080,
+  "base_sell_gold": 55,
+  "yield_count": 1,
+  "sprite_resource": "white_lily_bloom.png",
+  "sprout_sprite_resource": "white_lily_sprout.png",
+  "rarity": "Common",
+  "description": "A delicate white flower that grows well in the greenhouse soil. Blooms in 18 hours."
+}

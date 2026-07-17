@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "id": "flower_tulip",
+  "display_name": "Dutch Tulip",
+  "author": "Botanist Lead",
+  "last_modified": "2026-07-17",
+  "tags": ["spring", "classic", "colorful"],
+  "description": "A vibrant bulb flower that heralds the arrival of early Spring in the village.",
+  "rarity": "Common",
+  "growth_time": 1440,
+  "seed_item": "seed_tulip",
+  "yield_item": "flower_tulip",
+  "sprite": "flower_tulip_bloom.png",
+  "sprout_sprite_resource": "flower_tulip_sprout.png",
+  "sell_price": 64,
+  "festival_bonus": 15,
+  "favorite_season": "Spring",
+  "preferred_weather": "Sunny"
+}

@@ -1,0 +1,57 @@
+{
+  "name": "InventorySystem",
+  "associatedLayout": "GreenhouseScene",
+  "events": [
+    {
+      "type": "BuiltinCommonInstructions::Comment",
+      "comment": "================================================================================\nSYSTEM: INVENTORY SYSTEM (SPRINT 3.4.5 — TRANSACTION & EVENT CHAIN DECOUPLING)\nAUTHOR: Antigravity | LAST MODIFIED: 2026-07-16\nPURPOSE: Quản lý giao dịch thêm/bớt vật phẩm vào inventory_state.json. Lắng nghe\nInventoryRemoveRequest, InventoryAddRequest, và FlowerHarvested. Phát tín hiệu InventoryUpdated.\n================================================================================"
+    },
+    {
+      "type": "BuiltinCommonInstructions::Comment",
+      "comment": "BLOCK 1: INVENTORY REMOVE TRANSACTION (e.g., Planting seed)"
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": "VarGlobal",
+          "parameters": ["g_EventBusQueue.has_signal(\"InventoryRemoveRequest\")", "=", "true"]
+        }
+      ],
+      "actions": [
+        {
+          "type": "BuiltinCommonInstructions::Comment",
+          "comment": "Verify item exists in inventory_state.json with quantity >= request quantity -> Deduct quantity -> Emit InventoryUpdated & MarkSaveDirty"
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Comment",
+      "comment": "BLOCK 2: INVENTORY ADD TRANSACTION (e.g., FlowerHarvested / Shop Buy)"
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": "BuiltinCommonInstructions::Or",
+          "conditions": [
+            {
+              "type": "VarGlobal",
+              "parameters": ["g_EventBusQueue.has_signal(\"InventoryAddRequest\")", "=", "true"]
+            },
+            {
+              "type": "VarGlobal",
+              "parameters": ["g_EventBusQueue.has_signal(\"FlowerHarvested\")", "=", "true"]
+            }
+          ]
+        }
+      ],
+      "actions": [
+        {
+          "type": "BuiltinCommonInstructions::Comment",
+          "comment": "If FlowerHarvested, add item_harvest_white_lily (+yield). If InventoryAddRequest, add payload item -> Emit InventoryUpdated & MarkSaveDirty"
+        }
+      ]
+    }
+  ]
+}

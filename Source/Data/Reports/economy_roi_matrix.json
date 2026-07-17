@@ -1,0 +1,278 @@
+{
+  "sprint": "M4.2B",
+  "data_source": "Deterministic automated simulation (not human playtest)",
+  "simulation_authority": "scratch/simulation_core.py",
+  "game_minutes_per_day": 1440,
+  "normalized_roi_score": {
+    "method": "fixed_anchor_v1",
+    "lower_anchor": 10.0,
+    "upper_anchor": 95.0,
+    "formula": "clamp(100 * (roi_day - lower_anchor) / (upper_anchor - lower_anchor), 0, 100)"
+  },
+  "flowers": [
+    {
+      "id": "flower_lotus",
+      "name": "Sacred Water Lotus",
+      "rarity": "Rare",
+      "season": "Summer",
+      "seed_cost": 80,
+      "sell_price": 260,
+      "growth_minutes": 2880,
+      "growth_days": 2.0,
+      "profit": 180,
+      "stamina_cost": 11.0,
+      "roi": 2.25,
+      "roi_day": 90.0,
+      "roi_stamina": 16.364,
+      "roi_tile": 90.0,
+      "normalized_roi_score": 94.1
+    },
+    {
+      "id": "flower_orchid",
+      "name": "Moonlight Orchid",
+      "rarity": "Rare",
+      "season": "Autumn",
+      "seed_cost": 100,
+      "sell_price": 280,
+      "growth_minutes": 2880,
+      "growth_days": 2.0,
+      "profit": 180,
+      "stamina_cost": 11.0,
+      "roi": 1.8,
+      "roi_day": 90.0,
+      "roi_stamina": 16.364,
+      "roi_tile": 90.0,
+      "normalized_roi_score": 94.1
+    },
+    {
+      "id": "flower_carnation",
+      "name": "Pink Carnation",
+      "rarity": "Common",
+      "season": "Autumn",
+      "seed_cost": 28,
+      "sell_price": 85,
+      "growth_minutes": 1080,
+      "growth_days": 0.75,
+      "profit": 57,
+      "stamina_cost": 7.25,
+      "roi": 2.036,
+      "roi_day": 76.0,
+      "roi_stamina": 7.862,
+      "roi_tile": 76.0,
+      "normalized_roi_score": 77.6
+    },
+    {
+      "id": "flower_bluebell",
+      "name": "Winter Bluebell",
+      "rarity": "Uncommon",
+      "season": "Winter",
+      "seed_cost": 36,
+      "sell_price": 100,
+      "growth_minutes": 1440,
+      "growth_days": 1.0,
+      "profit": 64,
+      "stamina_cost": 8.0,
+      "roi": 1.778,
+      "roi_day": 64.0,
+      "roi_stamina": 8.0,
+      "roi_tile": 64.0,
+      "normalized_roi_score": 63.5
+    },
+    {
+      "id": "flower_sunflower",
+      "name": "Golden Sunflower",
+      "rarity": "Common",
+      "season": "Summer",
+      "seed_cost": 50,
+      "sell_price": 140,
+      "growth_minutes": 2160,
+      "growth_days": 1.5,
+      "profit": 90,
+      "stamina_cost": 9.5,
+      "roi": 1.8,
+      "roi_day": 60.0,
+      "roi_stamina": 9.474,
+      "roi_tile": 60.0,
+      "normalized_roi_score": 58.8
+    },
+    {
+      "id": "flower_lavender",
+      "name": "Fragrant Lavender",
+      "rarity": "Common",
+      "season": "Summer",
+      "seed_cost": 20,
+      "sell_price": 50,
+      "growth_minutes": 720,
+      "growth_days": 0.5,
+      "profit": 30,
+      "stamina_cost": 6.5,
+      "roi": 1.5,
+      "roi_day": 60.0,
+      "roi_stamina": 4.615,
+      "roi_tile": 60.0,
+      "normalized_roi_score": 58.8
+    },
+    {
+      "id": "flower_peony",
+      "name": "Pink Peony",
+      "rarity": "Uncommon",
+      "season": "Spring",
+      "seed_cost": 45,
+      "sell_price": 120,
+      "growth_minutes": 1800,
+      "growth_days": 1.25,
+      "profit": 75,
+      "stamina_cost": 8.75,
+      "roi": 1.667,
+      "roi_day": 60.0,
+      "roi_stamina": 8.571,
+      "roi_tile": 60.0,
+      "normalized_roi_score": 58.8
+    },
+    {
+      "id": "flower_iris",
+      "name": "Blue Iris",
+      "rarity": "Uncommon",
+      "season": "Summer",
+      "seed_cost": 40,
+      "sell_price": 105,
+      "growth_minutes": 1620,
+      "growth_days": 1.125,
+      "profit": 65,
+      "stamina_cost": 8.38,
+      "roi": 1.625,
+      "roi_day": 57.778,
+      "roi_stamina": 7.761,
+      "roi_tile": 57.778,
+      "normalized_roi_score": 56.2
+    },
+    {
+      "id": "flower_rose",
+      "name": "Crimson Rose",
+      "rarity": "Uncommon",
+      "season": "Spring",
+      "seed_cost": 35,
+      "sell_price": 88,
+      "growth_minutes": 1440,
+      "growth_days": 1.0,
+      "profit": 53,
+      "stamina_cost": 8.0,
+      "roi": 1.514,
+      "roi_day": 53.0,
+      "roi_stamina": 6.625,
+      "roi_tile": 53.0,
+      "normalized_roi_score": 50.6
+    },
+    {
+      "id": "flower_white_lily",
+      "name": "White Lily",
+      "rarity": "Common",
+      "season": "All",
+      "seed_cost": 20,
+      "sell_price": 55,
+      "growth_minutes": 1080,
+      "growth_days": 0.75,
+      "profit": 35,
+      "stamina_cost": 7.25,
+      "roi": 1.75,
+      "roi_day": 46.667,
+      "roi_stamina": 4.828,
+      "roi_tile": 46.667,
+      "normalized_roi_score": 43.1
+    },
+    {
+      "id": "flower_tulip",
+      "name": "Dutch Tulip",
+      "rarity": "Common",
+      "season": "Spring",
+      "seed_cost": 25,
+      "sell_price": 64,
+      "growth_minutes": 1440,
+      "growth_days": 1.0,
+      "profit": 39,
+      "stamina_cost": 8.0,
+      "roi": 1.56,
+      "roi_day": 39.0,
+      "roi_stamina": 4.875,
+      "roi_tile": 39.0,
+      "normalized_roi_score": 34.1
+    },
+    {
+      "id": "flower_daisy",
+      "name": "Field Daisy",
+      "rarity": "Common",
+      "season": "Spring",
+      "seed_cost": 10,
+      "sell_price": 26,
+      "growth_minutes": 1440,
+      "growth_days": 1.0,
+      "profit": 16,
+      "stamina_cost": 8.0,
+      "roi": 1.6,
+      "roi_day": 16.0,
+      "roi_stamina": 2.0,
+      "roi_tile": 16.0,
+      "normalized_roi_score": 7.1
+    }
+  ],
+  "seasonal_net_gold": {
+    "Spring": 2863.8,
+    "Summer": 7909.8,
+    "Autumn": 14210.1,
+    "Winter": 15085.32
+  },
+  "autumn_target": [
+    9000,
+    16000
+  ],
+  "autumn_status": "PASS",
+  "behavioral_kpis": {
+    "run_count": 50,
+    "money_earned": 3134909,
+    "money_spent": 1131458,
+    "money_sink_ratio": 0.3609,
+    "spending_by_category": {
+      "seeds": 1131458,
+      "tools": 0,
+      "shop": 0,
+      "festival": 0,
+      "upgrades": 0,
+      "other": 0
+    },
+    "gold_held_before_sleep": {
+      "checkpoints": {
+        "1": {
+          "average": 155.66,
+          "median": 155.0
+        },
+        "5": {
+          "average": 579.4,
+          "median": 555.5
+        },
+        "10": {
+          "average": 1123.64,
+          "median": 1130.0
+        }
+      },
+      "daily_event": "SLEEP_STARTED"
+    },
+    "crop_age_at_harvest": {
+      "average_minutes": 1650.16,
+      "median_minutes": 1440
+    },
+    "harvest_ready_wait_time": {
+      "average_minutes": 167.4,
+      "median_minutes": 120
+    },
+    "inventory_full_frequency": {
+      "value": null,
+      "status": "not_observable",
+      "reason": "No authoritative stack-capacity or InventoryFull event exists."
+    }
+  },
+  "content_validation": {
+    "status": "PASS",
+    "errors": [],
+    "warnings": []
+  }
+}

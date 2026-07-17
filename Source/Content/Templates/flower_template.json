@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "id": "flower_your_flower_name",
+  "display_name": "Your Flower Display Name",
+  "author": "Designer Name",
+  "last_modified": "2026-07-17",
+  "tags": ["season_tag", "category_tag"],
+  "description": "Short lore or satchel description here.",
+  "rarity": "Common",
+  "growth_time": 1440,
+  "seed_item": "seed_your_flower_name",
+  "yield_item": "flower_your_flower_name",
+  "sprite": "flower_your_flower_name.png",
+  "sell_price": 60,
+  "festival_bonus": 15,
+  "favorite_season": "All"
+}

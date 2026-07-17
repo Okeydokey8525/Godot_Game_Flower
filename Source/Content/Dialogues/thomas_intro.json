@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "id": "dialogue_thomas_intro",
+  "speaker_npc_id": "npc_thomas",
+  "lines": [
+    {
+      "state": "STATE_0_GREETING",
+      "text": "Oh, hello there young gardener! Welcome to our old village greenhouse.",
+      "next_state": "STATE_1_RECEIVED_SEED"
+    },
+    {
+      "state": "STATE_1_RECEIVED_SEED",
+      "text": "Here are 10 White Lily seeds and a sturdy watering can. Try planting one right over in that tilled soil!",
+      "next_state": "STATE_2_PLANTED"
+    },
+    {
+      "state": "STATE_2_PLANTED",
+      "text": "Splendid! Now remember to give it a good splash of water with your watering can so it sprouts.",
+      "next_state": "STATE_3_WATERED"
+    },
+    {
+      "state": "STATE_3_WATERED",
+      "text": "Look at that little sprout! It takes 18 hours to fully bloom. Head over to your bed when you need a good night's rest.",
+      "next_state": "STATE_4_COMPLETED"
+    }
+  ]
+}

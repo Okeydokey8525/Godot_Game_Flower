@@ -1,0 +1,135 @@
+{
+  "name": "InventoryUISystem",
+  "associatedLayout": "GreenhouseScene",
+  "events": [
+    {
+      "type": "BuiltinCommonInstructions::Comment",
+      "comment": "================================================================================\nSYSTEM: INVENTORY & SATCHEL UI SYSTEM (DATA-FIRST LOOKUP ENGINE)\nAUTHOR: Antigravity | LAST MODIFIED: 2026-07-16\nPURPOSE: Lắng nghe phím số 1-5, tra cứu inventory_state.json -> item_catalog.json\nđể nạp HeldItemComponent trên PlayerObject. Cập nhật Satchel UI & HUD Bar.\n================================================================================"
+    },
+    {
+      "type": "BuiltinCommonInstructions::Comment",
+      "comment": "BLOCK 1: SATCHEL SLOT SWITCHING (Number Keys 1-5)"
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": "Keyboard::KeyReleased",
+          "parameters": ["", "\"Num1\""]
+        }
+      ],
+      "actions": [
+        {
+          "type": "ModVarInstance",
+          "parameters": ["PlayerObject.selected_slot", "=", "0"]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Comment",
+          "comment": "Lookup slot 0 in inventory_state.json -> item_id -> lookup in item_catalog.json -> set PlayerObject.selected_item_id, item_type, use_behavior"
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": "Keyboard::KeyReleased",
+          "parameters": ["", "\"Num2\""]
+        }
+      ],
+      "actions": [
+        {
+          "type": "ModVarInstance",
+          "parameters": ["PlayerObject.selected_slot", "=", "1"]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Comment",
+          "comment": "Lookup slot 1 in inventory_state.json -> item_id -> lookup in item_catalog.json -> update PlayerObject HeldItemComponent"
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": "Keyboard::KeyReleased",
+          "parameters": ["", "\"Num3\""]
+        }
+      ],
+      "actions": [
+        {
+          "type": "ModVarInstance",
+          "parameters": ["PlayerObject.selected_slot", "=", "2"]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Comment",
+          "comment": "Lookup slot 2 in inventory_state.json -> empty slot -> set PlayerObject.selected_item_id = \"\", use_behavior = \"None\""
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Comment",
+      "comment": "BLOCK 2: SATCHEL UI HIGHLIGHT & SLOT QUANTITY SYNC"
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": "VarInstance",
+          "parameters": ["InventorySlotUIObject.slot_index", "=", "PlayerObject.selected_slot"]
+        }
+      ],
+      "actions": [
+        {
+          "type": "ModVarInstance",
+          "parameters": ["InventorySlotUIObject.is_selected", "=", "true"]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Comment",
+          "comment": "Set animation Slot_Selected and render quantity from inventory_state.json"
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": "VarInstance",
+          "parameters": ["InventorySlotUIObject.slot_index", "!=", "PlayerObject.selected_slot"]
+        }
+      ],
+      "actions": [
+        {
+          "type": "ModVarInstance",
+          "parameters": ["InventorySlotUIObject.is_selected", "=", "false"]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Comment",
+          "comment": "Set animation Slot_Unselected"
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Comment",
+      "comment": "BLOCK 3: HUD BAR REFRESH (Time, Weather, Gold & Active Held Item Display)"
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": "BuiltinCommonInstructions::AlwaysTrue"
+        }
+      ],
+      "actions": [
+        {
+          "type": "BuiltinCommonInstructions::Comment",
+          "comment": "Format HUD text with Day, Hour, Weather, Gold, and currently equipped item name + quantity"
+        },
+        {
+          "type": "TextObject::SetString",
+          "parameters": ["HUDBarObject", "=", "\"Day 1 | 08:00 | Sunny | Gold 100 | Held: White Lily Seed (5)\""]
+        }
+      ]
+    }
+  ]
+}

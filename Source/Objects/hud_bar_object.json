@@ -1,0 +1,17 @@
+{
+  "name": "HUDBarObject",
+  "type": "TextObject::Text",
+  "variables": [
+    {
+      "name": "display_text",
+      "type": "string",
+      "value": "Day 1 | 08:30 | Sunny | Gold 100"
+    }
+  ],
+  "characterSize": 20,
+  "font": "",
+  "bold": true,
+  "italic": false,
+  "color": { "r": 255, "g": 255, "b": 255 },
+  "string": "Day 1 | 08:30 | Sunny | Gold 100"
+}

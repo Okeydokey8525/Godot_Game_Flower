@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "id": "flower_rose",
+  "display_name": "Crimson Rose",
+  "author": "Botanist Lead",
+  "last_modified": "2026-07-17",
+  "tags": ["spring", "summer", "fragrant"],
+  "description": "A classic deep red rose. Highly sought after by village florists.",
+  "rarity": "Common",
+  "growth_time": 1440,
+  "seed_item": "seed_rose",
+  "yield_item": "flower_rose",
+  "sprite": "flower_rose.png",
+  "sell_price": 80,
+  "festival_bonus": 20,
+  "favorite_season": "Spring"
+}

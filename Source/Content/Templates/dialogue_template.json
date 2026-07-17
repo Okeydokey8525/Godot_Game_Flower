@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "id": "dialogue_your_npc_intro",
+  "display_name": "Your Dialogue Title",
+  "author": "Designer Name",
+  "last_modified": "2026-07-17",
+  "tags": ["intro", "greeting"],
+  "speaker": "npc_your_npc_name",
+  "conditions": [],
+  "lines": [
+    { "text": "Hello there! Write your dialogue text here." }
+  ],
+  "rewards": [],
+  "flags": [],
+  "next": ""
+}

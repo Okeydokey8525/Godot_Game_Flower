@@ -1,0 +1,355 @@
+{
+  "metadata": {
+    "run_id": "m4_2c_a_20260717T025339Z",
+    "timestamp_utc": "2026-07-17T02:53:39.281178+00:00",
+    "benchmark_version": "1.0.0",
+    "project_version": "0.1.0-M0",
+    "schema_version": "1.0.0-STABLE",
+    "git_commit": "unavailable: git metadata not readable in current workspace",
+    "python_version": "3.12.13 (main, Mar  3 2026, 15:01:35) [MSC v.1944 64 bit (AMD64)]",
+    "operating_system": "Windows-11-10.0.26200-SP0",
+    "cpu": "AMD64 Family 25 Model 117 Stepping 2, AuthenticAMD",
+    "system_ram": "unavailable: sandbox does not expose reliable hardware metadata",
+    "architecture": "AMD64",
+    "gdevelop_project_format": {
+      "build": 99,
+      "major": 5,
+      "minor": 0,
+      "revision": 0
+    },
+    "gdevelop_installed_version": "unavailable: no runtime/editor executable detected",
+    "content_manifest_entry_count": 55,
+    "content_manifest_version": 1,
+    "working_directory": "C:\\LeDucLuong\\Plant Tales",
+    "os_cache_state": "uncontrolled"
+  },
+  "evidence_classification": {
+    "data_pipeline": "PYTHON_BENCHMARK",
+    "memory": "PYTHON_BENCHMARK",
+    "save_load": "PYTHON_BENCHMARK",
+    "static_analysis": "STATIC_ANALYSIS",
+    "gdevelop_runtime": "NOT_MEASURED"
+  },
+  "m4_2c_a_status": "PASS",
+  "m4_2c_a_reason": "Reproducible raw Python benchmark evidence and validation artifacts were produced. It does not certify GDevelop runtime targets.",
+  "m4_2c_b_status": "PENDING",
+  "m4_2c_b_reason": "No executable GDevelop runtime or profiler evidence is available.",
+  "overall_m4_2c_status": "PARTIALLY_COMPLETE",
+  "content_inventory": {
+    "manifest_entries": 55,
+    "content_json_count": 55,
+    "additional_manifest_file_count": 1,
+    "raw_json_bytes": 27846,
+    "templates_excluded": true,
+    "template_json_count_excluded": 4,
+    "missing_paths": [],
+    "duplicate_manifest_paths": [],
+    "duplicate_registry_ids": [],
+    "frozen_manifest_order": [
+      "Source/Content/Flowers/white_lily.json",
+      "Source/Content/Flowers/rose.json",
+      "Source/Content/Flowers/sunflower.json",
+      "Source/Content/Flowers/lavender.json",
+      "Source/Content/Flowers/tulip.json",
+      "Source/Content/Flowers/daisy.json",
+      "Source/Content/Flowers/iris.json",
+      "Source/Content/Flowers/peony.json",
+      "Source/Content/Flowers/lotus.json",
+      "Source/Content/Flowers/orchid.json",
+      "Source/Content/Flowers/carnation.json",
+      "Source/Content/Flowers/bluebell.json",
+      "Source/Content/NPCs/thomas.json",
+      "Source/Content/NPCs/anna.json",
+      "Source/Content/NPCs/marcus.json",
+      "Source/Content/NPCs/elena.json",
+      "Source/Content/Dialogues/thomas_intro.json",
+      "Source/Content/Dialogues/anna_shop.json",
+      "Source/Content/Dialogues/marcus_shop.json",
+      "Source/Content/Dialogues/elena_townhall.json",
+      "Source/Content/Quests/quest_001_lily_request.json",
+      "Source/Content/Quests/quest_002_rose_delivery.json",
+      "Source/Content/Quests/quest_003_sunflower_harvest.json",
+      "Source/Content/Quests/quest_004_lavender_tea.json",
+      "Source/Content/Quests/quest_005_tulip_festival.json",
+      "Source/Content/Quests/quest_006_daisy_chain.json",
+      "Source/Content/Quests/quest_007_iris_pond.json",
+      "Source/Content/Quests/quest_008_peony_perfume.json",
+      "Source/Content/Quests/quest_009_sacred_lotus.json",
+      "Source/Content/Quests/quest_010_blacksmith_copper.json",
+      "Source/Content/Quests/quest_011_blacksmith_iron.json",
+      "Source/Content/Quests/quest_012_moonlight_orchid.json",
+      "Source/Content/Quests/quest_013_carnation_bouquet.json",
+      "Source/Content/Quests/quest_014_winter_bluebell.json",
+      "Source/Content/Quests/quest_015_grand_botanist.json",
+      "Source/Content/Items/seed_white_lily.json",
+      "Source/Content/Items/seed_rose.json",
+      "Source/Content/Items/seed_sunflower.json",
+      "Source/Content/Items/seed_lavender.json",
+      "Source/Content/Items/seed_tulip.json",
+      "Source/Content/Items/seed_daisy.json",
+      "Source/Content/Items/seed_iris.json",
+      "Source/Content/Items/seed_peony.json",
+      "Source/Content/Items/seed_lotus.json",
+      "Source/Content/Items/seed_orchid.json",
+      "Source/Content/Items/seed_carnation.json",
+      "Source/Content/Items/seed_bluebell.json",
+      "Source/Content/Items/tool_watering_can.json",
+      "Source/Content/Weather/weather_sunny.json",
+      "Source/Content/Weather/weather_rain.json",
+      "Source/Content/Weather/weather_cloudy.json",
+      "Source/Content/Seasons/season_spring.json",
+      "Source/Content/Seasons/season_summer.json",
+      "Source/Content/Seasons/season_autumn.json",
+      "Source/Content/Seasons/season_winter.json"
+    ]
+  },
+  "content_validation": {
+    "status": "PASS",
+    "errors": [],
+    "warnings": []
+  },
+  "metrics": {
+    "file_io_pipeline": {
+      "manifest_read": {
+        "sample_count": 100,
+        "mean": 0.219075,
+        "median": 0.1837,
+        "p95": 0.3814,
+        "minimum": 0.1352,
+        "maximum": 0.8407,
+        "unit": "ms"
+      },
+      "manifest_parse": {
+        "sample_count": 100,
+        "mean": 0.029057,
+        "median": 0.0216,
+        "p95": 0.0541,
+        "minimum": 0.0188,
+        "maximum": 0.299,
+        "unit": "ms"
+      },
+      "content_path_discovery": {
+        "sample_count": 100,
+        "mean": 9.056538,
+        "median": 8.63295,
+        "p95": 12.6039,
+        "minimum": 6.8716,
+        "maximum": 21.2871,
+        "unit": "ms"
+      },
+      "content_file_read": {
+        "sample_count": 100,
+        "mean": 7.305013,
+        "median": 7.1715,
+        "p95": 9.4937,
+        "minimum": 5.5872,
+        "maximum": 12.2587,
+        "unit": "ms"
+      },
+      "content_json_parse": {
+        "sample_count": 100,
+        "mean": 0.638998,
+        "median": 0.5894,
+        "p95": 0.9243,
+        "minimum": 0.4415,
+        "maximum": 1.9894,
+        "unit": "ms"
+      },
+      "registry_construction": {
+        "sample_count": 100,
+        "mean": 0.045036,
+        "median": 0.04175,
+        "p95": 0.0751,
+        "minimum": 0.0269,
+        "maximum": 0.121,
+        "unit": "ms"
+      },
+      "content_validation": {
+        "sample_count": 100,
+        "mean": 0.091499,
+        "median": 0.08235,
+        "p95": 0.1545,
+        "minimum": 0.0498,
+        "maximum": 0.2869,
+        "unit": "ms"
+      },
+      "total_pipeline": {
+        "sample_count": 100,
+        "mean": 17.385216,
+        "median": 16.97805,
+        "p95": 23.5828,
+        "minimum": 13.4088,
+        "maximum": 35.2934,
+        "unit": "ms"
+      }
+    },
+    "in_memory_pipeline": {
+      "manifest_parse": {
+        "sample_count": 500,
+        "mean": 0.037033,
+        "median": 0.03415,
+        "p95": 0.0602,
+        "minimum": 0.0163,
+        "maximum": 0.1416,
+        "unit": "ms"
+      },
+      "content_path_discovery": {
+        "sample_count": 500,
+        "mean": 10.310115,
+        "median": 9.8454,
+        "p95": 14.9136,
+        "minimum": 6.9648,
+        "maximum": 21.8494,
+        "unit": "ms"
+      },
+      "content_json_parse": {
+        "sample_count": 500,
+        "mean": 0.643053,
+        "median": 0.58765,
+        "p95": 0.973,
+        "minimum": 0.4192,
+        "maximum": 2.3033,
+        "unit": "ms"
+      },
+      "registry_construction": {
+        "sample_count": 500,
+        "mean": 0.046293,
+        "median": 0.0416,
+        "p95": 0.0773,
+        "minimum": 0.0264,
+        "maximum": 0.1993,
+        "unit": "ms"
+      },
+      "content_validation": {
+        "sample_count": 500,
+        "mean": 0.071506,
+        "median": 0.063,
+        "p95": 0.119,
+        "minimum": 0.0412,
+        "maximum": 0.2838,
+        "unit": "ms"
+      },
+      "total_pipeline": {
+        "sample_count": 500,
+        "mean": 11.108,
+        "median": 10.64125,
+        "p95": 15.8416,
+        "minimum": 7.4962,
+        "maximum": 23.268,
+        "unit": "ms"
+      }
+    },
+    "memory": {
+      "parsed_python_object_deep_size_bytes": {
+        "sample_count": 500,
+        "mean": 138332.0,
+        "median": 138332.0,
+        "p95": 138332,
+        "minimum": 138332,
+        "maximum": 138332,
+        "unit": "bytes"
+      },
+      "registry_python_deep_size_bytes": {
+        "sample_count": 500,
+        "mean": 130924.0,
+        "median": 130924.0,
+        "p95": 130924,
+        "minimum": 130924,
+        "maximum": 130924,
+        "unit": "bytes"
+      },
+      "tracemalloc_current_bytes": {
+        "sample_count": 500,
+        "mean": 129211.24,
+        "median": 129211.0,
+        "p95": 129211,
+        "minimum": 129211,
+        "maximum": 129331,
+        "unit": "bytes"
+      },
+      "tracemalloc_peak_bytes": {
+        "sample_count": 500,
+        "mean": 129347.24,
+        "median": 129347.0,
+        "p95": 129347,
+        "minimum": 129347,
+        "maximum": 129467,
+        "unit": "bytes"
+      }
+    },
+    "save": {
+      "save_file_read": {
+        "sample_count": 100,
+        "mean": 0.119782,
+        "median": 0.0986,
+        "p95": 0.2135,
+        "minimum": 0.0872,
+        "maximum": 0.3362,
+        "unit": "ms"
+      },
+      "save_json_parse": {
+        "sample_count": 500,
+        "mean": 0.00951,
+        "median": 0.0084,
+        "p95": 0.0141,
+        "minimum": 0.0078,
+        "maximum": 0.1113,
+        "unit": "ms"
+      },
+      "save_json_serialization": {
+        "sample_count": 500,
+        "mean": 0.011127,
+        "median": 0.0095,
+        "p95": 0.0177,
+        "minimum": 0.009,
+        "maximum": 0.1364,
+        "unit": "ms"
+      },
+      "save_json_deserialization": {
+        "sample_count": 500,
+        "mean": 0.008219,
+        "median": 0.0073,
+        "p95": 0.0118,
+        "minimum": 0.0067,
+        "maximum": 0.0952,
+        "unit": "ms"
+      }
+    },
+    "save_disk_byte_size": {
+      "value": 791,
+      "unit": "bytes"
+    },
+    "save_utf8_serialized_byte_size": {
+      "value": 615,
+      "unit": "bytes"
+    },
+    "gdevelop_runtime_registry_ram": {
+      "status": "NOT_MEASURED",
+      "reason": "Python memory is not GDevelop/JavaScript runtime memory."
+    },
+    "checksum_validation": {
+      "status": "NOT_OBSERVABLE",
+      "reason": "No executable checksum algorithm exists; SaveManager contains only a design comment."
+    }
+  },
+  "freeze_integrity": {
+    "before": {
+      "content_json_aggregate_sha256": "5811ea788485c549e8e5331a72c96aed5cbba3d0770813ad7cc7d1ac19797af2",
+      "content_json_file_count": 60,
+      "economy_balance_sha256": "df3d215726695e2128234da1c8a50f88a7286ce29792c918cb125e7a7320e940",
+      "method": "SHA-256 snapshot; benchmark opens frozen files read-only."
+    },
+    "after": {
+      "content_json_aggregate_sha256": "5811ea788485c549e8e5331a72c96aed5cbba3d0770813ad7cc7d1ac19797af2",
+      "content_json_file_count": 60,
+      "economy_balance_sha256": "df3d215726695e2128234da1c8a50f88a7286ce29792c918cb125e7a7320e940",
+      "method": "SHA-256 snapshot; benchmark opens frozen files read-only."
+    },
+    "unchanged_during_benchmark": true
+  },
+  "limitations": [
+    "Python object memory is not equivalent to GDevelop/JavaScript runtime memory.",
+    "Python pipeline timing is supporting evidence only and does not substitute for ContentManagerSystem runtime timing.",
+    "No file-I/O result is labelled as cold-cache because OS cache control is unavailable."
+  ]
+}

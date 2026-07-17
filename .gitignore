@@ -1,0 +1,25 @@
+# Godot generated data
+Godot/.godot/
+Godot/.import/
+Godot/export.cfg
+Godot/export_presets.cfg
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+
+# IDE
+.vscode/
+.idea/
+
+# Operating system
+Thumbs.db
+.DS_Store
+
+# Temporary files
+*.tmp
+*.bak
+*.log

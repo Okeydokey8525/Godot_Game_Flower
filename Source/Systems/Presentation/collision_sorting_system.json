@@ -1,0 +1,130 @@
+{
+  "name": "CollisionAndSortingSystem",
+  "associatedLayout": "GreenhouseScene",
+  "events": [
+    {
+      "type": "BuiltinCommonInstructions::Comment",
+      "comment": "================================================================================\nSYSTEM: COLLISION & DYNAMIC Y-SORTING (PC1 QUALITY PASS #1)\nAUTHOR: Antigravity | LAST MODIFIED: 2026-07-17\nPURPOSE: Quản lý 3 trụ cột vật lý & hiển thị: Camera Bounds Clamping, Dynamic\nY-Sorting (Depth Sorting), và Hitbox Separation chống kẹt góc (Corner Traps).\n================================================================================"
+    },
+    {
+      "type": "BuiltinCommonInstructions::Comment",
+      "comment": "BLOCK 1: CAMERA BOUNDS CLAMPING (Prevent outside-map black border rendering)"
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": "BuiltinCommonInstructions::AlwaysTrue"
+        }
+      ],
+      "actions": [
+        {
+          "type": "Camera::SetCameraX",
+          "parameters": ["", "clamp(CameraX(\"\", 0), CameraWidth(\"\", 0) / 2, 1920 - CameraWidth(\"\", 0) / 2)", "", "0"]
+        },
+        {
+          "type": "Camera::SetCameraY",
+          "parameters": ["", "clamp(CameraY(\"\", 0), CameraHeight(\"\", 0) / 2, 1080 - CameraHeight(\"\", 0) / 2)", "", "0"]
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Comment",
+      "comment": "BLOCK 2: DYNAMIC Y-SORTING (Depth Sorting — Objects lower down occlude higher up)"
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": "BuiltinCommonInstructions::AlwaysTrue"
+        }
+      ],
+      "actions": [
+        {
+          "type": "SetZOrder",
+          "parameters": ["PlayerObject", "=", "int(PlayerObject.Y())"]
+        },
+        {
+          "type": "SetZOrder",
+          "parameters": ["NPCThomasObject", "=", "int(NPCThomasObject.Y())"]
+        },
+        {
+          "type": "SetZOrder",
+          "parameters": ["BedObject", "=", "int(BedObject.Y())"]
+        },
+        {
+          "type": "SetZOrder",
+          "parameters": ["ShippingBinObject", "=", "int(ShippingBinObject.Y())"]
+        },
+        {
+          "type": "SetZOrder",
+          "parameters": ["FlowerInstanceObject", "=", "int(FlowerInstanceObject.Y())"]
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Comment",
+      "comment": "BLOCK 3: HITBOX SEPARATION & CORNER TRAP PREVENTION (Smooth obstacle sliding)"
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": "Collision",
+          "parameters": ["PlayerObject", "NPCThomasObject", "", "0", "false"]
+        }
+      ],
+      "actions": [
+        {
+          "type": "SeparateFromObjects",
+          "parameters": ["PlayerObject", "NPCThomasObject", "false"]
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": "Collision",
+          "parameters": ["PlayerObject", "BedObject", "", "0", "false"]
+        }
+      ],
+      "actions": [
+        {
+          "type": "SeparateFromObjects",
+          "parameters": ["PlayerObject", "BedObject", "false"]
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": "Collision",
+          "parameters": ["PlayerObject", "ShippingBinObject", "", "0", "false"]
+        }
+      ],
+      "actions": [
+        {
+          "type": "SeparateFromObjects",
+          "parameters": ["PlayerObject", "ShippingBinObject", "false"]
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": "Collision",
+          "parameters": ["PlayerObject", "WallObstacleObject", "", "0", "false"]
+        }
+      ],
+      "actions": [
+        {
+          "type": "SeparateFromObjects",
+          "parameters": ["PlayerObject", "WallObstacleObject", "false"]
+        }
+      ]
+    }
+  ]
+}

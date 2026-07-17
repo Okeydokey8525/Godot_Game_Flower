@@ -1,0 +1,95 @@
+{
+  "name": "ShippingBinSystem",
+  "associatedLayout": "GreenhouseScene",
+  "events": [
+    {
+      "type": "BuiltinCommonInstructions::Comment",
+      "comment": "================================================================================\nSYSTEM: SHIPPING BIN & ECONOMY LOOP V1 (SPRINT 3.7 — 5 FEATURES)\nAUTHOR: Antigravity | LAST MODIFIED: 2026-07-17\nPURPOSE: Quản lý hòm giao hàng Shipping Bin, cửa sổ xác nhận bán nông sản,\nInventoryRemoveRequest, EconomyAddGoldRequest và cập nhật Income Today.\n================================================================================"
+    },
+    {
+      "type": "BuiltinCommonInstructions::Comment",
+      "comment": "BLOCK 1: FEATURE 1 & 2 (INTERACT SHIPPING BIN HOOK -> OPEN SELL WINDOW)"
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": "VarGlobal",
+          "parameters": ["g_EventBusQueue.has_signal(\"InteractShippingBin\")", "=", "true"]
+        }
+      ],
+      "actions": [
+        {
+          "type": "BuiltinCommonInstructions::Comment",
+          "comment": "Check flower_white_lily count -> calculate pending_total_gold = count * 50 -> open ShippingUIBoxObject"
+        },
+        {
+          "type": "ModVarInstance",
+          "parameters": ["ShippingUIBoxObject.is_open", "=", "true"]
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Comment",
+      "comment": "BLOCK 2: FEATURE 3 & 4 (CONFIRM SHIPMENT ON SPACE -> REMOVE ITEM & ADD GOLD)"
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": "VarInstance",
+          "parameters": ["ShippingUIBoxObject.is_open", "=", "true"]
+        },
+        {
+          "type": "Keyboard::KeyReleased",
+          "parameters": ["", "\"Space\""]
+        }
+      ],
+      "actions": [
+        {
+          "type": "ModVarInstance",
+          "parameters": ["ShippingUIBoxObject.is_open", "=", "false"]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Comment",
+          "comment": "Feature 3: Emit InventoryRemoveRequest for shipped flowers"
+        },
+        {
+          "type": "BuiltinCommonInstructions::Comment",
+          "comment": "EventBus.Emit(\"InventoryRemoveRequest\", { item_id: pending_item_id, quantity: pending_quantity })"
+        },
+        {
+          "type": "BuiltinCommonInstructions::Comment",
+          "comment": "Feature 4: Emit EconomyAddGoldRequest and record g_WorldState.income_today += pending_total_gold"
+        },
+        {
+          "type": "BuiltinCommonInstructions::Comment",
+          "comment": "EventBus.Emit(\"EconomyAddGoldRequest\", { amount: pending_total_gold, source: \"shipping_bin\" }) -> MarkSaveDirty"
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Comment",
+      "comment": "BLOCK 3: CANCEL SHIPMENT ON ESCAPE"
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": "VarInstance",
+          "parameters": ["ShippingUIBoxObject.is_open", "=", "true"]
+        },
+        {
+          "type": "Keyboard::KeyReleased",
+          "parameters": ["", "\"Escape\""]
+        }
+      ],
+      "actions": [
+        {
+          "type": "ModVarInstance",
+          "parameters": ["ShippingUIBoxObject.is_open", "=", "false"]
+        }
+      ]
+    }
+  ]
+}

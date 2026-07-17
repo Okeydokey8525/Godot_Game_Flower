@@ -1,0 +1,241 @@
+{
+  "b": 60,
+  "g": 120,
+  "r": 70,
+  "standardSortMethod": true,
+  "stopSoundsOnStartup": false,
+  "title": "GreenhouseScene",
+  "vSync": true,
+  "uiSettings": { "grid": true, "gridWidth": 32, "gridHeight": 32 },
+  "objectsGroups": [],
+  "variables": [],
+  "instances": [
+    {
+      "angle": 0,
+      "customSize": false,
+      "height": 64,
+      "layer": "Plants",
+      "name": "PlayerObject",
+      "persistentUuid": "player_instance_001",
+      "width": 64,
+      "x": 960,
+      "y": 540,
+      "zOrder": 1
+    },
+    {
+      "angle": 0,
+      "customSize": false,
+      "height": 32,
+      "layer": "Plants",
+      "name": "InteractionSensorObject",
+      "persistentUuid": "sensor_instance_001",
+      "width": 32,
+      "x": 960,
+      "y": 572,
+      "zOrder": 2
+    },
+    {
+      "angle": 0,
+      "customSize": false,
+      "height": 40,
+      "layer": "HUD",
+      "name": "HUDBarObject",
+      "persistentUuid": "hud_bar_instance_001",
+      "width": 600,
+      "x": 20,
+      "y": 20,
+      "zOrder": 10
+    },
+    {
+      "angle": 0,
+      "customSize": false,
+      "height": 120,
+      "layer": "HUD",
+      "name": "ObjectiveHUDObject",
+      "persistentUuid": "objective_hud_instance_001",
+      "width": 300,
+      "x": 20,
+      "y": 80,
+      "zOrder": 10
+    },
+    {
+      "angle": 0,
+      "customSize": false,
+      "height": 32,
+      "layer": "Plants",
+      "name": "NPCThomasObject",
+      "persistentUuid": "npc_thomas_instance_001",
+      "width": 32,
+      "x": 960,
+      "y": 420,
+      "zOrder": 2
+    },
+    {
+      "angle": 0,
+      "customSize": false,
+      "height": 24,
+      "layer": "HUD",
+      "name": "FloatingPromptObject",
+      "persistentUuid": "floating_prompt_instance_001",
+      "width": 120,
+      "x": 960,
+      "y": 380,
+      "zOrder": 11
+    },
+    {
+      "angle": 0,
+      "customSize": false,
+      "height": 140,
+      "layer": "HUD",
+      "name": "DialogBoxObject",
+      "persistentUuid": "dialog_box_instance_001",
+      "width": 800,
+      "x": 560,
+      "y": 820,
+      "zOrder": 12
+    },
+    {
+      "angle": 0,
+      "customSize": false,
+      "height": 64,
+      "layer": "Plants",
+      "name": "BedObject",
+      "persistentUuid": "bed_instance_001",
+      "width": 64,
+      "x": 300,
+      "y": 300,
+      "zOrder": 2
+    },
+    {
+      "angle": 0,
+      "customSize": false,
+      "height": 1080,
+      "layer": "HUD",
+      "name": "BlackFadeObject",
+      "persistentUuid": "black_fade_instance_001",
+      "width": 1920,
+      "x": 0,
+      "y": 0,
+      "zOrder": 100
+    },
+    {
+      "angle": 0,
+      "customSize": false,
+      "height": 400,
+      "layer": "HUD",
+      "name": "DailySummaryBoxObject",
+      "persistentUuid": "daily_summary_instance_001",
+      "width": 600,
+      "x": 660,
+      "y": 340,
+      "zOrder": 101
+    },
+    {
+      "angle": 0,
+      "customSize": false,
+      "height": 64,
+      "layer": "Plants",
+      "name": "ShippingBinObject",
+      "persistentUuid": "shipping_bin_instance_001",
+      "width": 64,
+      "x": 420,
+      "y": 300,
+      "zOrder": 3
+    },
+    {
+      "angle": 0,
+      "customSize": false,
+      "height": 360,
+      "layer": "HUD",
+      "name": "ShippingUIBoxObject",
+      "persistentUuid": "shipping_ui_box_instance_001",
+      "width": 550,
+      "x": 685,
+      "y": 360,
+      "zOrder": 102
+    },
+    {
+      "angle": 0,
+      "customSize": false,
+      "height": 64,
+      "layer": "HUD",
+      "name": "InventorySlotUIObject",
+      "persistentUuid": "satchel_slot_0",
+      "width": 64,
+      "x": 700,
+      "y": 980,
+      "zOrder": 10
+    },
+    {
+      "angle": 0,
+      "customSize": false,
+      "height": 64,
+      "layer": "HUD",
+      "name": "InventorySlotUIObject",
+      "persistentUuid": "satchel_slot_1",
+      "width": 64,
+      "x": 780,
+      "y": 980,
+      "zOrder": 10
+    },
+    {
+      "angle": 0,
+      "customSize": false,
+      "height": 64,
+      "layer": "HUD",
+      "name": "InventorySlotUIObject",
+      "persistentUuid": "satchel_slot_2",
+      "width": 64,
+      "x": 860,
+      "y": 980,
+      "zOrder": 10
+    },
+    {
+      "angle": 0,
+      "customSize": false,
+      "height": 64,
+      "layer": "HUD",
+      "name": "InventorySlotUIObject",
+      "persistentUuid": "satchel_slot_3",
+      "width": 64,
+      "x": 940,
+      "y": 980,
+      "zOrder": 10
+    },
+    {
+      "angle": 0,
+      "customSize": false,
+      "height": 64,
+      "layer": "HUD",
+      "name": "InventorySlotUIObject",
+      "persistentUuid": "satchel_slot_4",
+      "width": 64,
+      "x": 1020,
+      "y": 980,
+      "zOrder": 10
+    }
+  ],
+  "layers": [
+    {
+      "name": "Background",
+      "visibility": true,
+      "cameras": [{ "defaultSize": true, "defaultViewport": true }]
+    },
+    {
+      "name": "SoilGrid",
+      "visibility": true,
+      "cameras": [{ "defaultSize": true, "defaultViewport": true }]
+    },
+    {
+      "name": "Plants",
+      "visibility": true,
+      "cameras": [{ "defaultSize": true, "defaultViewport": true }]
+    },
+    {
+      "name": "HUD",
+      "visibility": true,
+      "cameras": [{ "defaultSize": true, "defaultViewport": true }]
+    }
+  ],
+  "behaviorsSharedData": []
+}

@@ -1,0 +1,23 @@
+{
+  "name": "BlackFadeObject",
+  "type": "Sprite",
+  "variables": [
+    {
+      "name": "opacity",
+      "type": "number",
+      "value": 0
+    },
+    {
+      "name": "fade_state",
+      "type": "string",
+      "value": "Idle"
+    }
+  ],
+  "animations": [
+    {
+      "name": "Fade_Black",
+      "directions": []
+    }
+  ],
+  "behaviors": []
+}

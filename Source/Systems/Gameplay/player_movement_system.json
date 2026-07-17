@@ -1,0 +1,254 @@
+{
+  "name": "PlayerMovementSystem",
+  "associatedLayout": "GreenhouseScene",
+  "events": [
+    {
+      "type": "BuiltinCommonInstructions::Comment",
+      "comment": "================================================================================\nSYSTEM: PLAYER MOVEMENT & ANIMATION STATE MACHINE (SPRINT 3.4.5 UPGRADE)\nAUTHOR: Antigravity | LAST MODIFIED: 2026-07-16\nPURPOSE: Quản lý Camera, di chuyển 8 hướng, đếm ngược action_lock_timer và\nkiểm soát Animation State Machine (Idle -> Walk -> UseTool -> Plant/Water/Harvest).\n================================================================================"
+    },
+    {
+      "type": "BuiltinCommonInstructions::Comment",
+      "comment": "BLOCK 1: CAMERA TRACKING & SMOOTH FOLLOW (Every Frame)"
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": "BuiltinCommonInstructions::AlwaysTrue"
+        }
+      ],
+      "actions": [
+        {
+          "type": "Camera::CenterCameraOnObject",
+          "parameters": ["PlayerObject", "", "", "0"]
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Comment",
+      "comment": "BLOCK 2: ACTION LOCK TIMER COUNTDOWN & BUSY UNLOCKING"
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": "VarInstance",
+          "parameters": ["PlayerObject.action_lock_timer", ">", "0"]
+        }
+      ],
+      "actions": [
+        {
+          "type": "ModVarInstance",
+          "parameters": ["PlayerObject.action_lock_timer", "-=", "TimeDelta()"]
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": "VarInstance",
+          "parameters": ["PlayerObject.action_lock_timer", "<=", "0"]
+        },
+        {
+          "type": "VarInstance",
+          "parameters": ["PlayerObject.is_busy", "=", "true"]
+        }
+      ],
+      "actions": [
+        {
+          "type": "ModVarInstance",
+          "parameters": ["PlayerObject.is_busy", "=", "false"]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Comment",
+          "comment": "Action lock finished -> Unlock player input and return animation state to Idle"
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Comment",
+      "comment": "BLOCK 3: MOVEMENT STATE & FACING DIRECTION (Only when is_busy == false)"
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": "VarInstance",
+          "parameters": ["PlayerObject.is_busy", "=", "false"]
+        },
+        {
+          "type": "TopDownMovementBehavior::IsMoving",
+          "parameters": ["PlayerObject", "TopDownMovement"]
+        }
+      ],
+      "actions": [
+        {
+          "type": "ModVarInstance",
+          "parameters": ["PlayerObject.is_moving", "=", "true"]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Comment",
+          "comment": "Evaluate facing angle -> Set facing_direction integer (0=South, 1=West, 2=East, 3=North)"
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": "VarInstance",
+          "parameters": ["PlayerObject.is_busy", "=", "false"]
+        },
+        {
+          "type": "TopDownMovementBehavior::IsMoving",
+          "parameters": ["PlayerObject", "TopDownMovement"],
+          "inverted": true
+        }
+      ],
+      "actions": [
+        {
+          "type": "ModVarInstance",
+          "parameters": ["PlayerObject.is_moving", "=", "false"]
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Comment",
+      "comment": "BLOCK 4: INTERACTION SENSOR TRACKING (+32 pixels ahead of facing direction)"
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": "VarInstance",
+          "parameters": ["PlayerObject.facing_direction", "=", "0"]
+        }
+      ],
+      "actions": [
+        {
+          "type": "SetX",
+          "parameters": ["InteractionSensorObject", "=", "PlayerObject.X()"]
+        },
+        {
+          "type": "SetY",
+          "parameters": ["InteractionSensorObject", "=", "PlayerObject.Y() + 32"]
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": "VarInstance",
+          "parameters": ["PlayerObject.facing_direction", "=", "1"]
+        }
+      ],
+      "actions": [
+        {
+          "type": "SetX",
+          "parameters": ["InteractionSensorObject", "=", "PlayerObject.X() - 32"]
+        },
+        {
+          "type": "SetY",
+          "parameters": ["InteractionSensorObject", "=", "PlayerObject.Y()"]
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": "VarInstance",
+          "parameters": ["PlayerObject.facing_direction", "=", "2"]
+        }
+      ],
+      "actions": [
+        {
+          "type": "SetX",
+          "parameters": ["InteractionSensorObject", "=", "PlayerObject.X() + 32"]
+        },
+        {
+          "type": "SetY",
+          "parameters": ["InteractionSensorObject", "=", "PlayerObject.Y()"]
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": "VarInstance",
+          "parameters": ["PlayerObject.facing_direction", "=", "3"]
+        }
+      ],
+      "actions": [
+        {
+          "type": "SetX",
+          "parameters": ["InteractionSensorObject", "=", "PlayerObject.X()"]
+        },
+        {
+          "type": "SetY",
+          "parameters": ["InteractionSensorObject", "=", "PlayerObject.Y() - 32"]
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Comment",
+      "comment": "BLOCK 5: ANIMATION STATE MACHINE (Idle -> Walk -> UseTool/Busy)"
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": "VarInstance",
+          "parameters": ["PlayerObject.is_busy", "=", "true"]
+        }
+      ],
+      "actions": [
+        {
+          "type": "BuiltinCommonInstructions::Comment",
+          "comment": "If is_busy == true, keep playing tool animation (e.g. UseTool_South / Plant_South / Water_South)"
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": "VarInstance",
+          "parameters": ["PlayerObject.is_busy", "=", "false"]
+        },
+        {
+          "type": "VarInstance",
+          "parameters": ["PlayerObject.is_moving", "=", "true"]
+        }
+      ],
+      "actions": [
+        {
+          "type": "BuiltinCommonInstructions::Comment",
+          "comment": "Play Walk_<dir> animation corresponding to integer facing direction"
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": "VarInstance",
+          "parameters": ["PlayerObject.is_busy", "=", "false"]
+        },
+        {
+          "type": "VarInstance",
+          "parameters": ["PlayerObject.is_moving", "=", "false"]
+        }
+      ],
+      "actions": [
+        {
+          "type": "BuiltinCommonInstructions::Comment",
+          "comment": "Play Idle_<dir> animation corresponding to integer facing direction"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "name": "GameManager",
+  "associatedLayout": "BootScene",
+  "events": [
+    {
+      "type": "BuiltinCommonInstructions::Comment",
+      "comment": "================================================================================\nSINGLETON 01: GAME MANAGER\nPURPOSE: Quản lý vòng đời trò chơi, điều phối chuyển scene và trạng thái toàn cục.\n================================================================================"
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": "BuiltinCommonInstructions::AtBeginningOfScene"
+        }
+      ],
+      "actions": [
+        {
+          "type": "ModVarGlobal",
+          "parameters": ["g_IsDebugMode", "=", "true"]
+        },
+        {
+          "type": "ModVarGlobal",
+          "parameters": ["g_WorldSeed", "=", "123456"]
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": "VarGlobal",
+          "parameters": ["g_BootCompleted", "=", "true"]
+        },
+        {
+          "type": "VarScene",
+          "parameters": ["_SceneTransitionTriggered", "=", "false"]
+        }
+      ],
+      "actions": [
+        {
+          "type": "ModVarScene",
+          "parameters": ["_SceneTransitionTriggered", "=", "true"]
+        },
+        {
+          "type": "PushScene",
+          "parameters": ["\"GreenhouseScene\""]
+        }
+      ]
+    }
+  ]
+}

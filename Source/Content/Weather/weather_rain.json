@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "id": "weather_rain",
+  "display_name": "Refreshments & Rain",
+  "author": "System Lead",
+  "last_modified": "2026-07-17",
+  "tags": ["weather", "wet"],
+  "auto_water_crops": true,
+  "growth_speed_bonus": 0.1,
+  "npc_indoor_bias": 0.8,
+  "particle_effect": "RainDropParticles"
+}

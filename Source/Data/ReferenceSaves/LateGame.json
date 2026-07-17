@@ -1,0 +1,21 @@
+{
+  "tutorial_finished": true,
+  "current_day": 28,
+  "current_hour": 16,
+  "current_minute": 45,
+  "player_gold": 4500,
+  "player_stamina": 100,
+  "ftue_state": "STATE_4_COMPLETED",
+  "inventory_items": [
+    { "slot": 0, "id": "seed_white_lily", "count": 50 },
+    { "slot": 1, "id": "tool_watering_can", "count": 1 }
+  ],
+  "flower_instances": [
+    { "x": 320, "y": 240, "flower_id": "flower_white_lily", "stage": "Bloom", "watered": true },
+    { "x": 352, "y": 240, "flower_id": "flower_white_lily", "stage": "Bloom", "watered": true },
+    { "x": 384, "y": 240, "flower_id": "flower_white_lily", "stage": "Bloom", "watered": true },
+    { "x": 416, "y": 240, "flower_id": "flower_white_lily", "stage": "Bloom", "watered": true },
+    { "x": 320, "y": 272, "flower_id": "flower_white_lily", "stage": "Bloom", "watered": true },
+    { "x": 352, "y": 272, "flower_id": "flower_white_lily", "stage": "Bloom", "watered": true }
+  ]
+}

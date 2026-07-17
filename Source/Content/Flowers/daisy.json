@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "id": "flower_daisy",
+  "display_name": "Field Daisy",
+  "author": "Botanist Lead",
+  "last_modified": "2026-07-17",
+  "tags": ["spring", "starter", "wild"],
+  "description": "A cheerful white and yellow wildflower that sprouts quickly even in poor soil.",
+  "rarity": "Common",
+  "growth_time": 1440,
+  "seed_item": "seed_daisy",
+  "yield_item": "flower_daisy",
+  "sprite": "flower_daisy_bloom.png",
+  "sprout_sprite_resource": "flower_daisy_sprout.png",
+  "sell_price": 26,
+  "festival_bonus": 5,
+  "favorite_season": "Spring",
+  "preferred_weather": "Sunny"
+}

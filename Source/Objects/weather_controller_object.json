@@ -1,0 +1,41 @@
+{
+  "name": "WeatherControllerObject",
+  "type": "Sprite",
+  "variables": [
+    {
+      "name": "current_weather_id",
+      "type": "string",
+      "value": "weather_sunny"
+    },
+    {
+      "name": "is_raining",
+      "type": "boolean",
+      "value": false
+    },
+    {
+      "name": "moisture_modifier",
+      "type": "number",
+      "value": 1.0
+    },
+    {
+      "name": "light_tint_hex",
+      "type": "string",
+      "value": "#FFFFFF"
+    }
+  ],
+  "animations": [
+    {
+      "name": "WeatherIcon_Sunny",
+      "directions": []
+    },
+    {
+      "name": "WeatherIcon_Rain",
+      "directions": []
+    },
+    {
+      "name": "WeatherIcon_Fog",
+      "directions": []
+    }
+  ],
+  "behaviors": []
+}

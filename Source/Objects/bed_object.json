@@ -1,0 +1,23 @@
+{
+  "name": "BedObject",
+  "type": "Sprite",
+  "variables": [
+    {
+      "name": "interactable_type",
+      "type": "string",
+      "value": "Bed"
+    },
+    {
+      "name": "interaction_priority",
+      "type": "number",
+      "value": 15
+    }
+  ],
+  "animations": [
+    {
+      "name": "Bed_Normal",
+      "directions": []
+    }
+  ],
+  "behaviors": []
+}

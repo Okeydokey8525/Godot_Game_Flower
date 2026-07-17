@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "id": "quest_015_grand_botanist",
+  "display_name": "The Grand Master Botanist",
+  "author": "Design Lead",
+  "last_modified": "2026-07-17",
+  "tags": ["mastery", "all_seasons", "elena"],
+  "title": "A Legacy for the Village Archives",
+  "steps": [
+    { "type": "Ship", "target_id": "flower_white_lily", "count": 1 },
+    { "type": "Ship", "target_id": "flower_rose", "count": 1 },
+    { "type": "Ship", "target_id": "flower_sunflower", "count": 1 },
+    { "type": "Ship", "target_id": "flower_lotus", "count": 1 },
+    { "type": "Ship", "target_id": "flower_orchid", "count": 1 },
+    { "type": "Ship", "target_id": "flower_bluebell", "count": 1 }
+  ],
+  "completion": {
+    "npc_id": "npc_elena",
+    "dialogue_on_complete": "dialogue_elena_townhall"
+  },
+  "rewards": [
+    { "gold": 5000 }
+  ],
+  "repeatable": false,
+  "season": "All",
+  "dependencies": ["quest_009_sacred_lotus", "quest_012_moonlight_orchid", "quest_014_winter_bluebell"]
+}

@@ -1,0 +1,54 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "version": "1.0.0",
+  "flowers": [
+    {
+      "flower_id": "flower_white_lily",
+      "name": "White Lily",
+      "category": "flower",
+      "rarity_stars": 1,
+      "base_growth_minutes": 120,
+      "stages_count": 4,
+      "moisture_requirement": "moderate",
+      "yield_item_id": "item_flower_white_lily",
+      "base_sell_price": 25,
+      "lore_description": "A tranquil white bloom symbolizing fresh beginnings."
+    },
+    {
+      "flower_id": "flower_red_rose",
+      "name": "Red Rose",
+      "category": "flower",
+      "rarity_stars": 2,
+      "base_growth_minutes": 180,
+      "stages_count": 4,
+      "moisture_requirement": "moderate",
+      "yield_item_id": "item_flower_red_rose",
+      "base_sell_price": 45,
+      "lore_description": "A classic deep red rose loved by many village townsfolk."
+    },
+    {
+      "flower_id": "flower_blue_lavender",
+      "name": "Blue Lavender",
+      "category": "flower",
+      "rarity_stars": 2,
+      "base_growth_minutes": 150,
+      "stages_count": 4,
+      "moisture_requirement": "low",
+      "yield_item_id": "item_flower_blue_lavender",
+      "base_sell_price": 40,
+      "lore_description": "Soothing aromatic lavender that thrives in breezy weather."
+    },
+    {
+      "flower_id": "flower_golden_sunflower",
+      "name": "Golden Sunflower",
+      "category": "flower",
+      "rarity_stars": 3,
+      "base_growth_minutes": 240,
+      "stages_count": 4,
+      "moisture_requirement": "high",
+      "yield_item_id": "item_flower_golden_sunflower",
+      "base_sell_price": 80,
+      "lore_description": "A radiant golden bloom that turns toward spring sunshine."
+    }
+  ]
+}

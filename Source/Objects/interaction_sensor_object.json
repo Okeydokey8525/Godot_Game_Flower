@@ -1,0 +1,23 @@
+{
+  "name": "InteractionSensorObject",
+  "type": "Sprite",
+  "variables": [
+    {
+      "name": "sensor_range",
+      "type": "number",
+      "value": 32
+    },
+    {
+      "name": "is_active",
+      "type": "boolean",
+      "value": true
+    }
+  ],
+  "animations": [
+    {
+      "name": "SensorBoundingBox",
+      "directions": []
+    }
+  ],
+  "behaviors": []
+}

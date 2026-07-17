@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "id": "dialogue_thomas_greeting",
+  "display_name": "Thomas Casual Greeting",
+  "author": "Narrative Team",
+  "last_modified": "2026-07-17",
+  "tags": ["casual", "greeting"],
+  "speaker": "npc_thomas",
+  "lines": [
+    { "text": "Good morning! The greenhouse feels warmer when flowers are blooming." }
+  ]
+}

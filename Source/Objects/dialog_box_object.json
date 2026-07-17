@@ -1,0 +1,22 @@
+{
+  "name": "DialogBoxObject",
+  "type": "TextObject::Text",
+  "variables": [
+    {
+      "name": "is_open",
+      "type": "boolean",
+      "value": false
+    },
+    {
+      "name": "speaker_name",
+      "type": "string",
+      "value": "Thomas"
+    }
+  ],
+  "characterSize": 22,
+  "font": "",
+  "bold": false,
+  "italic": false,
+  "color": { "r": 255, "g": 255, "b": 255 },
+  "string": "Welcome! This greenhouse belonged to your grandfather.\nLet's grow your first flower."
+}

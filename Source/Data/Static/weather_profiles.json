@@ -1,0 +1,30 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "version": "1.0.0",
+  "weather_profiles": [
+    {
+      "weather_id": "weather_sunny",
+      "name": "Sunny Day",
+      "is_raining": false,
+      "moisture_modifier": 1.0,
+      "light_tint_hex": "#FFFFFF",
+      "bgm_ambience_id": "amb_gentle_wind"
+    },
+    {
+      "weather_id": "weather_spring_rain",
+      "name": "Spring Rain",
+      "is_raining": true,
+      "moisture_modifier": 2.0,
+      "light_tint_hex": "#D0E8FF",
+      "bgm_ambience_id": "amb_spring_rain"
+    },
+    {
+      "weather_id": "weather_morning_fog",
+      "name": "Morning Fog",
+      "is_raining": false,
+      "moisture_modifier": 1.2,
+      "light_tint_hex": "#EAEAEB",
+      "bgm_ambience_id": "amb_morning_dew"
+    }
+  ]
+}

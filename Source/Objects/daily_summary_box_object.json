@@ -1,0 +1,17 @@
+{
+  "name": "DailySummaryBoxObject",
+  "type": "TextObject::Text",
+  "variables": [
+    {
+      "name": "is_open",
+      "type": "boolean",
+      "value": false
+    }
+  ],
+  "characterSize": 20,
+  "font": "",
+  "bold": true,
+  "italic": false,
+  "color": { "r": 255, "g": 255, "b": 255 },
+  "string": "Day Complete\nFlowers Planted: 3\nFlowers Harvested: 2\nGold Earned: 120\n\n[Space] Continue"
+}

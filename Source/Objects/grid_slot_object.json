@@ -1,0 +1,57 @@
+{
+  "name": "GridSlotObject",
+  "type": "Sprite",
+  "variables": [
+    {
+      "name": "grid_x",
+      "type": "number",
+      "value": 0
+    },
+    {
+      "name": "grid_y",
+      "type": "number",
+      "value": 0
+    },
+    {
+      "name": "state",
+      "type": "string",
+      "value": "Empty"
+    },
+    {
+      "name": "moisture_level",
+      "type": "number",
+      "value": 100
+    },
+    {
+      "name": "flower_ref_id",
+      "type": "string",
+      "value": ""
+    },
+    {
+      "name": "interactable_type",
+      "type": "string",
+      "value": "Soil"
+    },
+    {
+      "name": "interaction_priority",
+      "type": "number",
+      "value": 10
+    },
+    {
+      "name": "interaction_range",
+      "type": "number",
+      "value": 32
+    }
+  ],
+  "animations": [
+    {
+      "name": "Soil_Dry",
+      "directions": []
+    },
+    {
+      "name": "Soil_Wet",
+      "directions": []
+    }
+  ],
+  "behaviors": []
+}

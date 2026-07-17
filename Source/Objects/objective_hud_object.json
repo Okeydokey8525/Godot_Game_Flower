@@ -1,0 +1,17 @@
+{
+  "name": "ObjectiveHUDObject",
+  "type": "TextObject::Text",
+  "variables": [
+    {
+      "name": "tutorial_step",
+      "type": "number",
+      "value": 0
+    }
+  ],
+  "characterSize": 18,
+  "font": "",
+  "bold": true,
+  "italic": false,
+  "color": { "r": 240, "g": 248, "b": 255 },
+  "string": "Tutorial\n[ ] Talk to Thomas\n[ ] Plant White Lily\n[ ] Water Seed\n[ ] Harvest Flower"
+}

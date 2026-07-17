@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "id": "quest_002_rose_delivery",
+  "display_name": "Anna's Rose Order",
+  "author": "Design Lead",
+  "last_modified": "2026-07-17",
+  "tags": ["delivery", "spring", "anna"],
+  "title": "A Bouquet of Crimson Roses",
+  "steps": [
+    { "type": "Harvest", "target_id": "flower_rose", "count": 2 }
+  ],
+  "completion": {
+    "npc_id": "npc_anna",
+    "dialogue_on_complete": "dialogue_anna_shop"
+  },
+  "rewards": [
+    { "gold": 250 },
+    { "item_id": "seed_sunflower", "count": 3 }
+  ],
+  "repeatable": false,
+  "season": "Spring",
+  "dependencies": ["quest_001_lily_request"],
+  "unlock_after": "Day 2"
+}

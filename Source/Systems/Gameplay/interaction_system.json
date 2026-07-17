@@ -1,0 +1,144 @@
+{
+  "name": "InteractionSystem",
+  "associatedLayout": "GreenhouseScene",
+  "events": [
+    {
+      "type": "BuiltinCommonInstructions::Comment",
+      "comment": "================================================================================\nSYSTEM: INTERACTION SYSTEM (SPRINT 3.4.5 ACTION LOCK & BUSY CHECK UPGRADE)\nAUTHOR: Antigravity | LAST MODIFIED: 2026-07-16\nPURPOSE: Kiểm tra PlayerObject.is_busy == false trước khi nhận input E/Space.\nKhi tương tác, kích hoạt action_lock_timer = 0.3s và định tuyến tín hiệu.\n================================================================================"
+    },
+    {
+      "type": "BuiltinCommonInstructions::Comment",
+      "comment": "BLOCK 1: KEYBOARD INTERACTION TRIGGER (Only when is_busy == false)"
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": "VarInstance",
+          "parameters": ["PlayerObject.is_busy", "=", "false"]
+        },
+        {
+          "type": "Keyboard::KeyReleased",
+          "parameters": ["", "\"e\""]
+        }
+      ],
+      "actions": [
+        {
+          "type": "BuiltinCommonInstructions::Comment",
+          "comment": "Lock player action: Set is_busy = true and action_lock_timer = 0.3s to prevent spamming"
+        },
+        {
+          "type": "ModVarInstance",
+          "parameters": ["PlayerObject.is_busy", "=", "true"]
+        },
+        {
+          "type": "ModVarInstance",
+          "parameters": ["PlayerObject.action_lock_timer", "=", "0.3"]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Comment",
+          "comment": "Scan candidates -> Assemble standardized InteractionContext -> Emit InteractionRequested"
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Comment",
+      "comment": "BLOCK 2: EVENT ROUTING DISPATCHER (ADR-003 Routing by target_type)"
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": "VarGlobal",
+          "parameters": ["g_EventBusQueue.has_signal(\"InteractionRequested\")", "=", "true"]
+        },
+        {
+          "type": "VarGlobal",
+          "parameters": ["g_EventBusQueue.get_signal_payload(\"InteractionRequested\").target_type", "=", "\"Soil\""]
+        }
+      ],
+      "actions": [
+        {
+          "type": "BuiltinCommonInstructions::Comment",
+          "comment": "Route to specialized signal -> EventBus.Emit(\"InteractSoil\", InteractionContext)"
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": "VarGlobal",
+          "parameters": ["g_EventBusQueue.has_signal(\"InteractionRequested\")", "=", "true"]
+        },
+        {
+          "type": "VarGlobal",
+          "parameters": ["g_EventBusQueue.get_signal_payload(\"InteractionRequested\").target_type", "=", "\"Flower\""]
+        }
+      ],
+      "actions": [
+        {
+          "type": "BuiltinCommonInstructions::Comment",
+          "comment": "Route to specialized signal -> EventBus.Emit(\"InteractFlower\", InteractionContext)"
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": "VarGlobal",
+          "parameters": ["g_EventBusQueue.has_signal(\"InteractionRequested\")", "=", "true"]
+        },
+        {
+          "type": "VarGlobal",
+          "parameters": ["g_EventBusQueue.get_signal_payload(\"InteractionRequested\").target_type", "=", "\"NPC\""]
+        }
+      ],
+      "actions": [
+        {
+          "type": "BuiltinCommonInstructions::Comment",
+          "comment": "Route to specialized signal -> EventBus.Emit(\"InteractNPC\", InteractionContext)"
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": "VarGlobal",
+          "parameters": ["g_EventBusQueue.has_signal(\"InteractionRequested\")", "=", "true"]
+        },
+        {
+          "type": "VarGlobal",
+          "parameters": ["g_EventBusQueue.get_signal_payload(\"InteractionRequested\").target_type", "=", "\"Bed\""]
+        }
+      ],
+      "actions": [
+        {
+          "type": "BuiltinCommonInstructions::Comment",
+          "comment": "Route to specialized signal -> EventBus.Emit(\"InteractBed\", InteractionContext)"
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": "VarGlobal",
+          "parameters": ["g_EventBusQueue.has_signal(\"InteractionRequested\")", "=", "true"]
+        },
+        {
+          "type": "VarGlobal",
+          "parameters": ["g_EventBusQueue.get_signal_payload(\"InteractionRequested\").target_type", "=", "\"ShippingBin\""]
+        }
+      ],
+      "actions": [
+        {
+          "type": "BuiltinCommonInstructions::Comment",
+          "comment": "Route to specialized signal -> EventBus.Emit(\"InteractShippingBin\", InteractionContext)"
+        }
+      ]
+    }
+  ]
+}

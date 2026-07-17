@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "id": "seed_tulip",
+  "display_name": "Tulip Bulbs",
+  "author": "Botanist Lead",
+  "last_modified": "2026-07-17",
+  "tags": ["seed", "spring"],
+  "item_type": "Seed",
+  "target_flower_id": "flower_tulip",
+  "buy_price": 25,
+  "satchel_slot_default": 5,
+  "icon_resource": "seed_tulip_icon.png"
+}

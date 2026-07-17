@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "id": "quest_004_lavender_tea",
+  "display_name": "Calming Lavender Tea",
+  "author": "Design Lead",
+  "last_modified": "2026-07-17",
+  "tags": ["harvest", "summer", "thomas"],
+  "title": "Soothing the Elder's Joints",
+  "steps": [
+    { "type": "Harvest", "target_id": "flower_lavender", "count": 3 }
+  ],
+  "completion": { "npc_id": "npc_thomas" },
+  "rewards": [
+    { "gold": 180 },
+    { "item_id": "seed_iris", "count": 2 }
+  ],
+  "repeatable": false,
+  "season": "Summer",
+  "dependencies": ["quest_001_lily_request"]
+}

@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "id": "npc_your_npc_name",
+  "display_name": "Your NPC Full Name",
+  "author": "Designer Name",
+  "last_modified": "2026-07-17",
+  "tags": ["role_tag", "village"],
+  "portrait": "portrait_your_npc_normal.png",
+  "default_schedule": {
+    "default": { "x": 300, "y": 200, "scene": "GreenhouseScene" }
+  },
+  "dialogue_root": "dialogue_your_npc_intro",
+  "likes": [],
+  "dislikes": [],
+  "birthday": "Spring 1",
+  "relationship_events": []
+}

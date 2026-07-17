@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "id": "weather_cloudy",
+  "display_name": "Overcast & Gentle Shade",
+  "author": "System Lead",
+  "last_modified": "2026-07-17",
+  "tags": ["weather", "shade"],
+  "auto_water_crops": false,
+  "growth_speed_bonus": 0.0,
+  "npc_indoor_bias": 0.3,
+  "particle_effect": "GentleMistParticles"
+}

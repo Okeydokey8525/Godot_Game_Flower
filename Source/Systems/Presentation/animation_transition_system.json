@@ -1,0 +1,372 @@
+{
+  "name": "AnimationAndTransitionSystem",
+  "associatedLayout": "GreenhouseScene",
+  "events": [
+    {
+      "type": "BuiltinCommonInstructions::Comment",
+      "comment": "================================================================================\nSYSTEM: ANIMATION & TRANSITION POLISH (PC1 QUALITY PASS #2)\nAUTHOR: Antigravity | LAST MODIFIED: 2026-07-17\nPURPOSE: Quản lý 3 trụ cột độ mượt: Animation State & Speed Sync (chống giật frame),\nSmooth Turn Arounds (đổi hướng 4 góc nhạy tức thì), và Bed Sleep Rest Pause (0.5s).\n================================================================================"
+    },
+    {
+      "type": "BuiltinCommonInstructions::Comment",
+      "comment": "BLOCK 1: SMOOTH TURN AROUNDS & SPEED SYNC FOR WALKING (0=South, 1=West, 2=East, 3=North)"
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": "VarInstance",
+          "parameters": ["PlayerObject.is_busy", "=", "false"]
+        },
+        {
+          "type": "VarInstance",
+          "parameters": ["PlayerObject.is_moving", "=", "true"]
+        },
+        {
+          "type": "VarInstance",
+          "parameters": ["PlayerObject.facing_direction", "=", "0"]
+        }
+      ],
+      "actions": [
+        {
+          "type": "SetAnimationName",
+          "parameters": ["PlayerObject", "\"Walk_South\""]
+        },
+        {
+          "type": "SetAnimationSpeedScale",
+          "parameters": ["PlayerObject", "=", "1.0"]
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": "VarInstance",
+          "parameters": ["PlayerObject.is_busy", "=", "false"]
+        },
+        {
+          "type": "VarInstance",
+          "parameters": ["PlayerObject.is_moving", "=", "true"]
+        },
+        {
+          "type": "VarInstance",
+          "parameters": ["PlayerObject.facing_direction", "=", "1"]
+        }
+      ],
+      "actions": [
+        {
+          "type": "SetAnimationName",
+          "parameters": ["PlayerObject", "\"Walk_West\""]
+        },
+        {
+          "type": "SetAnimationSpeedScale",
+          "parameters": ["PlayerObject", "=", "1.0"]
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": "VarInstance",
+          "parameters": ["PlayerObject.is_busy", "=", "false"]
+        },
+        {
+          "type": "VarInstance",
+          "parameters": ["PlayerObject.is_moving", "=", "true"]
+        },
+        {
+          "type": "VarInstance",
+          "parameters": ["PlayerObject.facing_direction", "=", "2"]
+        }
+      ],
+      "actions": [
+        {
+          "type": "SetAnimationName",
+          "parameters": ["PlayerObject", "\"Walk_East\""]
+        },
+        {
+          "type": "SetAnimationSpeedScale",
+          "parameters": ["PlayerObject", "=", "1.0"]
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": "VarInstance",
+          "parameters": ["PlayerObject.is_busy", "=", "false"]
+        },
+        {
+          "type": "VarInstance",
+          "parameters": ["PlayerObject.is_moving", "=", "true"]
+        },
+        {
+          "type": "VarInstance",
+          "parameters": ["PlayerObject.facing_direction", "=", "3"]
+        }
+      ],
+      "actions": [
+        {
+          "type": "SetAnimationName",
+          "parameters": ["PlayerObject", "\"Walk_North\""]
+        },
+        {
+          "type": "SetAnimationSpeedScale",
+          "parameters": ["PlayerObject", "=", "1.0"]
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Comment",
+      "comment": "BLOCK 2: SMOOTH IDLE STATE SYNCHRONIZATION"
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": "VarInstance",
+          "parameters": ["PlayerObject.is_busy", "=", "false"]
+        },
+        {
+          "type": "VarInstance",
+          "parameters": ["PlayerObject.is_moving", "=", "false"]
+        },
+        {
+          "type": "VarInstance",
+          "parameters": ["PlayerObject.facing_direction", "=", "0"]
+        }
+      ],
+      "actions": [
+        {
+          "type": "SetAnimationName",
+          "parameters": ["PlayerObject", "\"Idle_South\""]
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": "VarInstance",
+          "parameters": ["PlayerObject.is_busy", "=", "false"]
+        },
+        {
+          "type": "VarInstance",
+          "parameters": ["PlayerObject.is_moving", "=", "false"]
+        },
+        {
+          "type": "VarInstance",
+          "parameters": ["PlayerObject.facing_direction", "=", "1"]
+        }
+      ],
+      "actions": [
+        {
+          "type": "SetAnimationName",
+          "parameters": ["PlayerObject", "\"Idle_West\""]
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": "VarInstance",
+          "parameters": ["PlayerObject.is_busy", "=", "false"]
+        },
+        {
+          "type": "VarInstance",
+          "parameters": ["PlayerObject.is_moving", "=", "false"]
+        },
+        {
+          "type": "VarInstance",
+          "parameters": ["PlayerObject.facing_direction", "=", "2"]
+        }
+      ],
+      "actions": [
+        {
+          "type": "SetAnimationName",
+          "parameters": ["PlayerObject", "\"Idle_East\""]
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": "VarInstance",
+          "parameters": ["PlayerObject.is_busy", "=", "false"]
+        },
+        {
+          "type": "VarInstance",
+          "parameters": ["PlayerObject.is_moving", "=", "false"]
+        },
+        {
+          "type": "VarInstance",
+          "parameters": ["PlayerObject.facing_direction", "=", "3"]
+        }
+      ],
+      "actions": [
+        {
+          "type": "SetAnimationName",
+          "parameters": ["PlayerObject", "\"Idle_North\""]
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Comment",
+      "comment": "BLOCK 3: BED SLEEP FADE OUT & REST PAUSE TIMER (0.5s resting pause at full black)"
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": "VarInstance",
+          "parameters": ["BlackFadeObject.fade_state", "=", "\"FadeOut\""]
+        },
+        {
+          "type": "VarInstance",
+          "parameters": ["BlackFadeObject.opacity", "<", "255"]
+        }
+      ],
+      "actions": [
+        {
+          "type": "ModVarInstance",
+          "parameters": ["BlackFadeObject.opacity", "+=", "TimeDelta() * 380"]
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": "VarInstance",
+          "parameters": ["BlackFadeObject.fade_state", "=", "\"FadeOut\""]
+        },
+        {
+          "type": "VarInstance",
+          "parameters": ["BlackFadeObject.opacity", ">=", "255"]
+        }
+      ],
+      "actions": [
+        {
+          "type": "ModVarInstance",
+          "parameters": ["BlackFadeObject.opacity", "=", "255"]
+        },
+        {
+          "type": "ModVarInstance",
+          "parameters": ["BlackFadeObject.sleep_pause_timer", "=", "0.5"]
+        },
+        {
+          "type": "ModVarInstance",
+          "parameters": ["BlackFadeObject.fade_state", "=", "\"SleepResting\""]
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Comment",
+      "comment": "BLOCK 4: SLEEP RESTING TIMER -> DAY ADVANCE & ATOMIC AUTOSAVE"
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": "VarInstance",
+          "parameters": ["BlackFadeObject.fade_state", "=", "\"SleepResting\""]
+        },
+        {
+          "type": "VarInstance",
+          "parameters": ["BlackFadeObject.sleep_pause_timer", ">", "0"]
+        }
+      ],
+      "actions": [
+        {
+          "type": "ModVarInstance",
+          "parameters": ["BlackFadeObject.sleep_pause_timer", "-=", "TimeDelta()"]
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": "VarInstance",
+          "parameters": ["BlackFadeObject.fade_state", "=", "\"SleepResting\""]
+        },
+        {
+          "type": "VarInstance",
+          "parameters": ["BlackFadeObject.sleep_pause_timer", "<=", "0"]
+        }
+      ],
+      "actions": [
+        {
+          "type": "ModVarGlobal",
+          "parameters": ["g_WorldState.current_day", "+=", "1"]
+        },
+        {
+          "type": "ModVarGlobal",
+          "parameters": ["g_WorldState.current_hour", "=", "6"]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Comment",
+          "comment": "Atomic Autosave Hook if dirty -> SaveManager.Save()"
+        },
+        {
+          "type": "ModVarInstance",
+          "parameters": ["DailySummaryBoxObject.is_open", "=", "true"]
+        },
+        {
+          "type": "ModVarInstance",
+          "parameters": ["BlackFadeObject.fade_state", "=", "\"SummaryWaiting\""]
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Comment",
+      "comment": "BLOCK 5: WAKE UP FADE IN TRANSITION"
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": "VarInstance",
+          "parameters": ["BlackFadeObject.fade_state", "=", "\"FadeIn\""]
+        },
+        {
+          "type": "VarInstance",
+          "parameters": ["BlackFadeObject.opacity", ">", "0"]
+        }
+      ],
+      "actions": [
+        {
+          "type": "ModVarInstance",
+          "parameters": ["BlackFadeObject.opacity", "-=", "TimeDelta() * 380"]
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": "VarInstance",
+          "parameters": ["BlackFadeObject.fade_state", "=", "\"FadeIn\""]
+        },
+        {
+          "type": "VarInstance",
+          "parameters": ["BlackFadeObject.opacity", "<=", "0"]
+        }
+      ],
+      "actions": [
+        {
+          "type": "ModVarInstance",
+          "parameters": ["BlackFadeObject.opacity", "=", "0"]
+        },
+        {
+          "type": "ModVarInstance",
+          "parameters": ["BlackFadeObject.fade_state", "=", "\"Idle\""]
+        }
+      ]
+    }
+  ]
+}

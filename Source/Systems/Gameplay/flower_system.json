@@ -1,0 +1,154 @@
+{
+  "name": "FlowerSystem",
+  "associatedLayout": "GreenhouseScene",
+  "events": [
+    {
+      "type": "BuiltinCommonInstructions::Comment",
+      "comment": "================================================================================\nSYSTEM: FLOWER SYSTEM (SPRINT 3.4.5 DECOUPLED TRANSACTION UPGRADE)\nAUTHOR: Antigravity | LAST MODIFIED: 2026-07-16\nPURPOSE: Quản lý sinh trưởng và phát tín hiệu giao dịch tách rời InventoryRemoveRequest,\nFlowerHarvested, và MarkSaveDirty. Cấm sửa gold hoặc inventory trực tiếp!\n================================================================================"
+    },
+    {
+      "type": "BuiltinCommonInstructions::Comment",
+      "comment": "BLOCK 1: INITIALIZATION & GRID GENERATION (At Beginning of GreenhouseScene)"
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": "BuiltinCommonInstructions::AtBeginningOfScene"
+        }
+      ],
+      "actions": [
+        {
+          "type": "BuiltinCommonInstructions::Comment",
+          "comment": "Generate 20x20 GridSlots with base spacing 32px, interactable_type = Soil, and set initial state Empty"
+        },
+        {
+          "type": "ModVarGlobal",
+          "parameters": ["g_GreenhouseGridInitialized", "=", "true"]
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Comment",
+      "comment": "BLOCK 2: ROUTED CONSUMER — PLANTING SEED (InteractSoil + Plant Mode)"
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": "VarGlobal",
+          "parameters": ["g_EventBusQueue.has_signal(\"InteractSoil\")", "=", "true"]
+        },
+        {
+          "type": "VarGlobal",
+          "parameters": ["g_EventBusQueue.get_signal_payload(\"InteractSoil\").interaction_type", "=", "\"Plant\""]
+        },
+        {
+          "type": "VarGlobal",
+          "parameters": ["g_EventBusQueue.get_signal_payload(\"InteractSoil\").selected_item_type", "=", "\"Seed\""]
+        }
+      ],
+      "actions": [
+        {
+          "type": "BuiltinCommonInstructions::Comment",
+          "comment": "Verify GridSlot state == Empty -> Emit EventBus.Emit(\"InventoryRemoveRequest\", { item_id: payload.selected_item_id, quantity: 1 })"
+        },
+        {
+          "type": "BuiltinCommonInstructions::Comment",
+          "comment": "Spawn FlowerInstanceObject stage = 0 -> Set GridSlot state = Occupied -> Emit FlowerPlanted -> MarkSaveDirty"
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Comment",
+      "comment": "BLOCK 3: ROUTED CONSUMER — WATERING SOIL & PLANT (InteractSoil + Water Mode)"
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": "VarGlobal",
+          "parameters": ["g_EventBusQueue.has_signal(\"InteractSoil\")", "=", "true"]
+        },
+        {
+          "type": "VarGlobal",
+          "parameters": ["g_EventBusQueue.get_signal_payload(\"InteractSoil\").interaction_type", "=", "\"Water\""]
+        }
+      ],
+      "actions": [
+        {
+          "type": "BuiltinCommonInstructions::Comment",
+          "comment": "Restore GridSlot and Flower moisture = 100 -> Play SFX WaterSplash -> MarkSaveDirty"
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Comment",
+      "comment": "BLOCK 4: TIME-SLICED RUNTIME & DEBUG-ONLY TIME SKIP (TimeMinuteTicked / Key T)"
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": "VarGlobal",
+          "parameters": ["g_TimeTicker.is_paused", "=", "false"]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Or",
+          "conditions": [
+            {
+              "type": "VarGlobal",
+              "parameters": ["g_EventBusQueue.has_signal(\"TimeMinuteTicked\")", "=", "true"]
+            },
+            {
+              "type": "BuiltinCommonInstructions::And",
+              "conditions": [
+                {
+                  "type": "VarGlobal",
+                  "parameters": ["g_IsDebugMode", "=", "true"]
+                },
+                {
+                  "type": "Keyboard::KeyReleased",
+                  "parameters": ["", "\"t\""]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "actions": [
+        {
+          "type": "BuiltinCommonInstructions::Comment",
+          "comment": "If Key 'T' pressed and g_IsDebugMode == true -> Add +60 minutes instantly (DEBUG_BUILD_ONLY)"
+        },
+        {
+          "type": "BuiltinCommonInstructions::Comment",
+          "comment": "Advance stage: Stage 0 -> Stage 1 -> Stage 2 -> Stage 3 (Bloom). If stage == 3, emit FlowerBloomed and MarkSaveDirty!"
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Comment",
+      "comment": "BLOCK 5: ROUTED CONSUMER — HARVESTING FLOWER (InteractFlower Hook)"
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": "VarGlobal",
+          "parameters": ["g_EventBusQueue.has_signal(\"InteractFlower\")", "=", "true"]
+        }
+      ],
+      "actions": [
+        {
+          "type": "BuiltinCommonInstructions::Comment",
+          "comment": "Check target flower stage == 3 -> Destroy flower sprite -> Reset GridSlot to Empty -> Play SFX Chime -> MarkSaveDirty"
+        },
+        {
+          "type": "BuiltinCommonInstructions::Comment",
+          "comment": "Emit pure event: EventBus.Emit(\"FlowerHarvested\", { flower_id: \"flower_white_lily\", yield: 1, gold_earned: 50, grid_x: slot.grid_x, grid_y: slot.grid_y })"
+        }
+      ]
+    }
+  ]
+}

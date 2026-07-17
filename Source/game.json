@@ -1,0 +1,149 @@
+{
+  "gdVersion": {
+    "build": 99,
+    "major": 5,
+    "minor": 0,
+    "revision": 0
+  },
+  "properties": {
+    "name": "Plant Tales — Cozy Botanical RPG",
+    "description": "AAA Studio Cozy Botanical RPG Prototype (Milestone M0 Bootstrap)",
+    "version": "0.1.0-M0",
+    "author": "Antigravity & Studio Team",
+    "orientation": "landscape",
+    "windowWidth": 1920,
+    "windowHeight": 1080,
+    "maxFPS": 60,
+    "minFPS": 20,
+    "scaleMode": "nearest",
+    "pixelsRounding": true,
+    "folderProject": true
+  },
+  "resources": {
+    "resources": []
+  },
+  "objects": [],
+  "objectsGroups": [],
+  "variables": [
+    {
+      "name": "g_IsDebugMode",
+      "type": "boolean",
+      "value": true
+    },
+    {
+      "name": "g_WorldSeed",
+      "type": "number",
+      "value": 123456
+    },
+    {
+      "name": "g_BootCompleted",
+      "type": "boolean",
+      "value": false
+    }
+  ],
+  "layouts": [
+    {
+      "name": "BootScene",
+      "file": "Scenes/boot_scene.json"
+    },
+    {
+      "name": "GreenhouseScene",
+      "file": "Scenes/greenhouse_scene.json"
+    },
+    {
+      "name": "VillageScene",
+      "file": "Scenes/village_scene.json"
+    }
+  ],
+  "externalEvents": [
+    {
+      "name": "GameManager",
+      "file": "Core/game_manager.json"
+    },
+    {
+      "name": "EventBus",
+      "file": "Core/event_bus.json"
+    },
+    {
+      "name": "TimeTicker",
+      "file": "Core/time_ticker.json"
+    },
+    {
+      "name": "SaveManager",
+      "file": "Core/save_manager.json"
+    },
+    {
+      "name": "ContentManagerSystem",
+      "file": "Systems/Core/content_manager_system.json"
+    },
+    {
+      "name": "FlowerSystem",
+      "file": "Systems/Gameplay/flower_system.json"
+    },
+    {
+      "name": "WeatherSystem",
+      "file": "Systems/Gameplay/weather_system.json"
+    },
+    {
+      "name": "PlayerMovementSystem",
+      "file": "Systems/Gameplay/player_movement_system.json"
+    },
+    {
+      "name": "InteractionSystem",
+      "file": "Systems/Gameplay/interaction_system.json"
+    },
+    {
+      "name": "InventoryUISystem",
+      "file": "Systems/Gameplay/inventory_ui_system.json"
+    },
+    {
+      "name": "InventorySystem",
+      "file": "Systems/Gameplay/inventory_system.json"
+    },
+    {
+      "name": "EconomySystem",
+      "file": "Systems/Economy/economy_system.json"
+    },
+    {
+      "name": "FTUETutorialSystem",
+      "file": "Systems/Gameplay/ftue_tutorial_system.json"
+    },
+    {
+      "name": "DailyLoopSystem",
+      "file": "Systems/Gameplay/daily_loop_system.json"
+    },
+    {
+      "name": "ShippingBinSystem",
+      "file": "Systems/Economy/shipping_bin_system.json"
+    },
+    {
+      "name": "CollisionAndSortingSystem",
+      "file": "Systems/Presentation/collision_sorting_system.json"
+    },
+    {
+      "name": "AnimationAndTransitionSystem",
+      "file": "Systems/Presentation/animation_transition_system.json"
+    },
+    {
+      "name": "AudioAndSoundFeelSystem",
+      "file": "Systems/Presentation/audio_sound_feel_system.json"
+    },
+    {
+      "name": "VFXAndJuiceSystem",
+      "file": "Systems/Presentation/vfx_juice_system.json"
+    },
+    {
+      "name": "UIAndUXPolishSystem",
+      "file": "Systems/Presentation/ui_ux_polish_system.json"
+    },
+    {
+      "name": "BalancingAndEconomySystem",
+      "file": "Systems/Debug/balancing_economy_system.json"
+    },
+    {
+      "name": "PlaytestAndValidationSystem",
+      "file": "Systems/Debug/playtest_validation_system.json"
+    }
+  ],
+  "externalLayouts": []
+}

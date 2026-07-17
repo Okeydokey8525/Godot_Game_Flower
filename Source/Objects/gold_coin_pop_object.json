@@ -1,0 +1,17 @@
+{
+  "name": "GoldCoinPopObject",
+  "type": "TextObject::Text",
+  "variables": [
+    {
+      "name": "life_timer",
+      "type": "number",
+      "value": 1.0
+    }
+  ],
+  "characterSize": 22,
+  "font": "",
+  "bold": true,
+  "italic": false,
+  "color": { "r": 255, "g": 215, "b": 0 },
+  "string": "+Gold"
+}

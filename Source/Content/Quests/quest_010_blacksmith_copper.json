@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "id": "quest_010_blacksmith_copper",
+  "display_name": "Blacksmith Tool Upgrade Request",
+  "author": "Design Lead",
+  "last_modified": "2026-07-17",
+  "tags": ["marcus", "upgrade", "tool"],
+  "title": "Supporting the Village Forge",
+  "steps": [
+    { "type": "Harvest", "target_id": "flower_carnation", "count": 3 }
+  ],
+  "completion": {
+    "npc_id": "npc_marcus",
+    "dialogue_on_complete": "dialogue_marcus_shop"
+  },
+  "rewards": [
+    { "gold": 400 },
+    { "item_id": "seed_orchid", "count": 1 }
+  ],
+  "repeatable": false,
+  "season": "Autumn",
+  "dependencies": ["quest_003_sunflower_harvest"]
+}

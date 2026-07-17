@@ -1,0 +1,31 @@
+{
+  "b": 100,
+  "g": 150,
+  "r": 90,
+  "standardSortMethod": true,
+  "stopSoundsOnStartup": false,
+  "title": "VillageScene",
+  "vSync": true,
+  "uiSettings": { "grid": true, "gridWidth": 32, "gridHeight": 32 },
+  "objectsGroups": [],
+  "variables": [],
+  "instances": [],
+  "layers": [
+    {
+      "name": "Background",
+      "visibility": true,
+      "cameras": [{ "defaultSize": true, "defaultViewport": true }]
+    },
+    {
+      "name": "Townsfolk",
+      "visibility": true,
+      "cameras": [{ "defaultSize": true, "defaultViewport": true }]
+    },
+    {
+      "name": "HUD",
+      "visibility": true,
+      "cameras": [{ "defaultSize": true, "defaultViewport": true }]
+    }
+  ],
+  "behaviorsSharedData": []
+}

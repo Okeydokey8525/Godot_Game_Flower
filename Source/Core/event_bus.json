@@ -1,0 +1,36 @@
+{
+  "name": "EventBus",
+  "associatedLayout": "BootScene",
+  "events": [
+    {
+      "type": "BuiltinCommonInstructions::Comment",
+      "comment": "================================================================================\nSINGLETON 02: EVENT BUS\nPURPOSE: Quản lý hàng đợi sự kiện toàn cục Global Signal Bus (Emit / Consume / Trace).\n================================================================================"
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": "BuiltinCommonInstructions::AtBeginningOfScene"
+        }
+      ],
+      "actions": [
+        {
+          "type": "ModVarGlobal",
+          "parameters": ["g_EventBusQueue", "=", "[]"]
+        },
+        {
+          "type": "ModVarGlobal",
+          "parameters": ["g_SignalTraceHistory", "=", "[]"]
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Comment",
+      "comment": "API EMIT SIGNAL: Push new event structure { signal_name, payload, timestamp } into g_EventBusQueue"
+    },
+    {
+      "type": "BuiltinCommonInstructions::Comment",
+      "comment": "API CONSUME SIGNAL: Process signals and clean up processed items at end of frame to maintain performance budget"
+    }
+  ]
+}

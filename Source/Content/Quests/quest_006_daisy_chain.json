@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "id": "quest_006_daisy_chain",
+  "display_name": "Cheery Daisy Chain",
+  "author": "Design Lead",
+  "last_modified": "2026-07-17",
+  "tags": ["harvest", "spring", "starter"],
+  "title": "Quick Blooms for the Children",
+  "steps": [
+    { "type": "Harvest", "target_id": "flower_daisy", "count": 6 }
+  ],
+  "completion": { "auto_complete": true },
+  "rewards": [
+    { "gold": 150 }
+  ],
+  "repeatable": true,
+  "season": "Spring",
+  "dependencies": []
+}
