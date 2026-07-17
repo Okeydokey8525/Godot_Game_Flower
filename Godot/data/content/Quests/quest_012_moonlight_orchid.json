@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "id": "quest_012_moonlight_orchid",
+  "display_name": "The Moonlight Orchid",
+  "author": "Design Lead",
+  "last_modified": "2026-07-17",
+  "tags": ["harvest", "autumn", "rare", "anna"],
+  "title": "Harvesting the Mysterious White Orchid",
+  "steps": [
+    { "type": "Harvest", "target_id": "flower_orchid", "count": 1 }
+  ],
+  "completion": { "npc_id": "npc_anna" },
+  "rewards": [
+    { "gold": 750 },
+    { "item_id": "seed_bluebell", "count": 3 }
+  ],
+  "repeatable": false,
+  "season": "Autumn",
+  "dependencies": ["quest_010_blacksmith_copper"]
+}

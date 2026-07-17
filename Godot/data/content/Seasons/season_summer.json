@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "id": "season_summer",
+  "display_name": "Scorching Summer",
+  "author": "System Lead",
+  "last_modified": "2026-07-17",
+  "tags": ["season", "summer"],
+  "season_order": 2,
+  "default_weather": "weather_sunny",
+  "allowed_weather": ["weather_sunny", "weather_rain"],
+  "crop_growth_multiplier": 1.15,
+  "water_evaporation_rate": 1.25,
+  "ambient_color_hex": "#FFE8A3"
+}

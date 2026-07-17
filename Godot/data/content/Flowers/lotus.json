@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "id": "flower_lotus",
+  "display_name": "Sacred Water Lotus",
+  "author": "Botanist Lead",
+  "last_modified": "2026-07-17",
+  "tags": ["summer", "rare", "sacred"],
+  "description": "A magnificent pink and white bloom that opens serenely above greenhouse water basins.",
+  "rarity": "Rare",
+  "growth_time": 2880,
+  "seed_item": "seed_lotus",
+  "yield_item": "flower_lotus",
+  "sprite": "flower_lotus_bloom.png",
+  "sprout_sprite_resource": "flower_lotus_sprout.png",
+  "sell_price": 260,
+  "festival_bonus": 60,
+  "favorite_season": "Summer",
+  "preferred_weather": "Sunny"
+}

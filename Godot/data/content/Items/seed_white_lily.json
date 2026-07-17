@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "id": "seed_white_lily",
+  "display_name": "White Lily Seeds",
+  "item_type": "Seed",
+  "target_flower_id": "flower_white_lily",
+  "buy_price": 20,
+  "satchel_slot_default": 0,
+  "icon_resource": "seed_white_lily_icon.png"
+}

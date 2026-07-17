@@ -1,0 +1,359 @@
+{
+  "metadata_format_version": 1,
+  "sync_tool_version": "1.0.0",
+  "source_root": "Source/Content",
+  "generated_content_warning": "Generated output. Do not edit manually.",
+  "manifest_version": 1,
+  "manifest_sha256": "7b99a0463ae13ecba8449e3c1e1403c1be177b801a4be8b5f9022faea2b269f1",
+  "entry_count": 55,
+  "category_counts": {
+    "flowers": 12,
+    "npcs": 4,
+    "dialogues": 4,
+    "quests": 15,
+    "items": 13,
+    "weather": 3,
+    "seasons": 4
+  },
+  "schema_version_inventory": {
+    "integer_values": [
+      1
+    ],
+    "string_values": [],
+    "missing": 0,
+    "supported_runtime_representation": "integer:1"
+  },
+  "ordered_inventory": [
+    {
+      "category": "flowers",
+      "path": "Flowers/white_lily.json",
+      "id": "flower_white_lily",
+      "sha256": "d3b18bc55c80fb2195a026ea8b991ebaf69da0941763fc28a4802515ee35f597"
+    },
+    {
+      "category": "flowers",
+      "path": "Flowers/rose.json",
+      "id": "flower_rose",
+      "sha256": "b49b8fb9444217f3a2b8f4efa4f5d6a16e92eb6ab02bfb5742a43b32d5e54bc6"
+    },
+    {
+      "category": "flowers",
+      "path": "Flowers/sunflower.json",
+      "id": "flower_sunflower",
+      "sha256": "c1840b4d76ce8133c1e389db6f93d7af54ba11c7beab1e73311566211cc6f872"
+    },
+    {
+      "category": "flowers",
+      "path": "Flowers/lavender.json",
+      "id": "flower_lavender",
+      "sha256": "afaff21dd4f508e76d657c15dc18fedfa3fdb855d650b494eabf5c031ac43591"
+    },
+    {
+      "category": "flowers",
+      "path": "Flowers/tulip.json",
+      "id": "flower_tulip",
+      "sha256": "ed780489a4bcac8598d6d6b025381da9a31950b1fe77ec5824dffb925d78b2fd"
+    },
+    {
+      "category": "flowers",
+      "path": "Flowers/daisy.json",
+      "id": "flower_daisy",
+      "sha256": "b83c36ec4464f0f3ea3a9bd08ce6650e11ed050960adc18c497442da323e35c2"
+    },
+    {
+      "category": "flowers",
+      "path": "Flowers/iris.json",
+      "id": "flower_iris",
+      "sha256": "2ba27dee15c61c9f008cde5d5d59f76e24ac0263e24da64c908e72554c47d035"
+    },
+    {
+      "category": "flowers",
+      "path": "Flowers/peony.json",
+      "id": "flower_peony",
+      "sha256": "d73a14538dadaab6ad96253a49bee3ac03c24dcb4098231427ab722a0fcc85c9"
+    },
+    {
+      "category": "flowers",
+      "path": "Flowers/lotus.json",
+      "id": "flower_lotus",
+      "sha256": "f57f30409833412349d373a104dda65e4d7b72805ec8588cbe6ca6d3cdac149d"
+    },
+    {
+      "category": "flowers",
+      "path": "Flowers/orchid.json",
+      "id": "flower_orchid",
+      "sha256": "45a044d31324f1519d41de0875422d0f6d99d7a7fd8cd62b7345a6d5a17307bd"
+    },
+    {
+      "category": "flowers",
+      "path": "Flowers/carnation.json",
+      "id": "flower_carnation",
+      "sha256": "c94ae070fe3ca17a734382608d668565374b0dcc559826ed6c39eac79c140935"
+    },
+    {
+      "category": "flowers",
+      "path": "Flowers/bluebell.json",
+      "id": "flower_bluebell",
+      "sha256": "f28129ef9d218c141fef1b3cbc964983d45f979d57506cddb32d56a729e3928d"
+    },
+    {
+      "category": "npcs",
+      "path": "NPCs/thomas.json",
+      "id": "npc_thomas",
+      "sha256": "6da283278c1434908ac34969a173996a425af4e6cb4cb53ca2a6d87f38932ed2"
+    },
+    {
+      "category": "npcs",
+      "path": "NPCs/anna.json",
+      "id": "npc_anna",
+      "sha256": "7fcd1e723ef23c05fbdee1a8c5cee0acb4a42db8f35e8f8cba3d581da5d255e6"
+    },
+    {
+      "category": "npcs",
+      "path": "NPCs/marcus.json",
+      "id": "npc_marcus",
+      "sha256": "7f62d5d47a848b145e0ed09fe53f91e7254a65dafeb9edf6a9e469ad1eedfaf6"
+    },
+    {
+      "category": "npcs",
+      "path": "NPCs/elena.json",
+      "id": "npc_elena",
+      "sha256": "c3e93ff5d7790a5bdb5dba8af06176b8f86217dd3d6737cf2b1d77c7a482d50e"
+    },
+    {
+      "category": "dialogues",
+      "path": "Dialogues/thomas_intro.json",
+      "id": "dialogue_thomas_intro",
+      "sha256": "077e48b59b1c3207083ec95f485c5b9fc83f744e5dea40fc2bbd274290d6f907"
+    },
+    {
+      "category": "dialogues",
+      "path": "Dialogues/anna_shop.json",
+      "id": "dialogue_anna_shop",
+      "sha256": "a0a7fc993957a87766407a006f119b7a12aa056cfcd0286bfcd68cc83d1afb70"
+    },
+    {
+      "category": "dialogues",
+      "path": "Dialogues/marcus_shop.json",
+      "id": "dialogue_marcus_shop",
+      "sha256": "6f50bf8230a25f48834ab6924c1683a0a136cec66d166cfcbd5b4919b196eba3"
+    },
+    {
+      "category": "dialogues",
+      "path": "Dialogues/elena_townhall.json",
+      "id": "dialogue_elena_townhall",
+      "sha256": "3dcddc95a55995d844832f7af71546f56f005f57a868caa8d46c5a5462759f27"
+    },
+    {
+      "category": "quests",
+      "path": "Quests/quest_001_lily_request.json",
+      "id": "quest_001_lily_request",
+      "sha256": "615fdff10a3ff300eab6971033e2e688682ea8a623564464a5d4f55c8c1c7b2d"
+    },
+    {
+      "category": "quests",
+      "path": "Quests/quest_002_rose_delivery.json",
+      "id": "quest_002_rose_delivery",
+      "sha256": "d59bd7cb6c8e4bd0ce199cf25a4084ea6baa452de53ae996333d27683811a9d3"
+    },
+    {
+      "category": "quests",
+      "path": "Quests/quest_003_sunflower_harvest.json",
+      "id": "quest_003_sunflower_harvest",
+      "sha256": "e11116863312b0f1f1199aa12dee2b3ab9b1b0b1994297f93d9c1841ec234e55"
+    },
+    {
+      "category": "quests",
+      "path": "Quests/quest_004_lavender_tea.json",
+      "id": "quest_004_lavender_tea",
+      "sha256": "b43671030ae7905de527d484aba9684d1d61606168da29fb26cbf75ad7989fad"
+    },
+    {
+      "category": "quests",
+      "path": "Quests/quest_005_tulip_festival.json",
+      "id": "quest_005_tulip_festival",
+      "sha256": "dc5d4cb44f1a0e1cba57ad6178e08b8550530b8534d6554383c40e0db06b1afe"
+    },
+    {
+      "category": "quests",
+      "path": "Quests/quest_006_daisy_chain.json",
+      "id": "quest_006_daisy_chain",
+      "sha256": "2a57546007f06c8876028bb4fc2907717148f1f1355c25d25ea5b21129147822"
+    },
+    {
+      "category": "quests",
+      "path": "Quests/quest_007_iris_pond.json",
+      "id": "quest_007_iris_pond",
+      "sha256": "3300502fa8c87d5380d648c8dd1b9413879b8198582ffcd7583b737d5100aca9"
+    },
+    {
+      "category": "quests",
+      "path": "Quests/quest_008_peony_perfume.json",
+      "id": "quest_008_peony_perfume",
+      "sha256": "f890626c1b7b6b4e61ce95611c8067df4641a06c6c6631947ea88df7465a5448"
+    },
+    {
+      "category": "quests",
+      "path": "Quests/quest_009_sacred_lotus.json",
+      "id": "quest_009_sacred_lotus",
+      "sha256": "2be45aaee25192c7294599ab3640434173d0f9313aa49cfea488b904aeaaaa38"
+    },
+    {
+      "category": "quests",
+      "path": "Quests/quest_010_blacksmith_copper.json",
+      "id": "quest_010_blacksmith_copper",
+      "sha256": "609f21d6060ac0667d133a10e289dd5ea89d27e5a87f18e029d15bb13743aa91"
+    },
+    {
+      "category": "quests",
+      "path": "Quests/quest_011_blacksmith_iron.json",
+      "id": "quest_011_blacksmith_iron",
+      "sha256": "aab8883bba1f2d0fd9f41107440d15ad1c456639bfd3f3234b2a670050605a84"
+    },
+    {
+      "category": "quests",
+      "path": "Quests/quest_012_moonlight_orchid.json",
+      "id": "quest_012_moonlight_orchid",
+      "sha256": "43173fa303e0afd64216fe43c19c9d872f5de8c0b13d65629ede0f9828780b36"
+    },
+    {
+      "category": "quests",
+      "path": "Quests/quest_013_carnation_bouquet.json",
+      "id": "quest_013_carnation_bouquet",
+      "sha256": "2a777540e5741d32c69f7b7a98579c40079b0536102d1cb5bebd215fc1dfb1c9"
+    },
+    {
+      "category": "quests",
+      "path": "Quests/quest_014_winter_bluebell.json",
+      "id": "quest_014_winter_bluebell",
+      "sha256": "e2c0a4a00a6adef0740196eae330a96ea35a900272ef8a77db88aa3f81cd78a1"
+    },
+    {
+      "category": "quests",
+      "path": "Quests/quest_015_grand_botanist.json",
+      "id": "quest_015_grand_botanist",
+      "sha256": "3773fbff659abe6e87e23d799b8a4ceb81ec68624811437c271ba344406ff0f3"
+    },
+    {
+      "category": "items",
+      "path": "Items/seed_white_lily.json",
+      "id": "seed_white_lily",
+      "sha256": "bc25822e94803ff95d1be4ad95b962f602f251c2b597611b580cf8a9ee003c38"
+    },
+    {
+      "category": "items",
+      "path": "Items/seed_rose.json",
+      "id": "seed_rose",
+      "sha256": "fde7b93fac532980d0bc4685df7cccbcee5ecdcb189ef6db84417ead5d2d525f"
+    },
+    {
+      "category": "items",
+      "path": "Items/seed_sunflower.json",
+      "id": "seed_sunflower",
+      "sha256": "ac7f42c89b84eb31fdd251ce88e58a4100f34c64e71c01a0cda682a83f56dcba"
+    },
+    {
+      "category": "items",
+      "path": "Items/seed_lavender.json",
+      "id": "seed_lavender",
+      "sha256": "aea329a61b6feb243efcfacd46b4b32e0c997659ecb88da33d0aa2b3951ba292"
+    },
+    {
+      "category": "items",
+      "path": "Items/seed_tulip.json",
+      "id": "seed_tulip",
+      "sha256": "d63194d056caebef9eff92642832c572f8d8550d88cd7b23c1a2ccc731efdfee"
+    },
+    {
+      "category": "items",
+      "path": "Items/seed_daisy.json",
+      "id": "seed_daisy",
+      "sha256": "3472ed6f93303c5ff0e640ada0261a8c3fc18cce96a75aa64723e0e1bc3cef93"
+    },
+    {
+      "category": "items",
+      "path": "Items/seed_iris.json",
+      "id": "seed_iris",
+      "sha256": "ba115a8ca42a8f8c05b97b8fd8fc19a5b667bfff7a025a3aa415036a5191ddff"
+    },
+    {
+      "category": "items",
+      "path": "Items/seed_peony.json",
+      "id": "seed_peony",
+      "sha256": "05b9a63d35fabd2285b4dc0684e00be881f43e8aa06e1d886335bf23ca05a4c0"
+    },
+    {
+      "category": "items",
+      "path": "Items/seed_lotus.json",
+      "id": "seed_lotus",
+      "sha256": "19775743c118f418a3a84440770ffa2168a5a2555f669add46a7b02925ebd183"
+    },
+    {
+      "category": "items",
+      "path": "Items/seed_orchid.json",
+      "id": "seed_orchid",
+      "sha256": "8acb0c6e9e46e6cf19ce295dd009a8b1833c14ade713b9470e3c0c81b4f119fd"
+    },
+    {
+      "category": "items",
+      "path": "Items/seed_carnation.json",
+      "id": "seed_carnation",
+      "sha256": "6a65cc0919c47637e62fd6ada11c9606bdd495c74c525ab5fde921d3fbbb4534"
+    },
+    {
+      "category": "items",
+      "path": "Items/seed_bluebell.json",
+      "id": "seed_bluebell",
+      "sha256": "c1d79fc4e4bb081be19a9795b2a276e269732271a6b2e0f86074d5a07a2f341c"
+    },
+    {
+      "category": "items",
+      "path": "Items/tool_watering_can.json",
+      "id": "tool_watering_can",
+      "sha256": "1d34eac0bba5d61c0be799e234542867f119b4a599a134f4855892d3fa9cdf27"
+    },
+    {
+      "category": "weather",
+      "path": "Weather/weather_sunny.json",
+      "id": "weather_sunny",
+      "sha256": "0f80ed0076cf96b66df0bcbd6518a4214d21e195258cb20201ec7dea645b0659"
+    },
+    {
+      "category": "weather",
+      "path": "Weather/weather_rain.json",
+      "id": "weather_rain",
+      "sha256": "6714fff4b95a8854c0349d61dc9d25f4fe054e2f641df01c0a6003978eb99ae4"
+    },
+    {
+      "category": "weather",
+      "path": "Weather/weather_cloudy.json",
+      "id": "weather_cloudy",
+      "sha256": "9bce4a500a3b53a80d0614ceff91081b45cdea3493e1951786fb287ca8a3b354"
+    },
+    {
+      "category": "seasons",
+      "path": "Seasons/season_spring.json",
+      "id": "season_spring",
+      "sha256": "a4df3dd6979a744a806ceebd1ab330002170abb16aca57284c440e3475995b22"
+    },
+    {
+      "category": "seasons",
+      "path": "Seasons/season_summer.json",
+      "id": "season_summer",
+      "sha256": "30b8b2441e42a8ec355e23b1d0667f0ec409f82e9e6b954a4c3cbd8c779bdb1e"
+    },
+    {
+      "category": "seasons",
+      "path": "Seasons/season_autumn.json",
+      "id": "season_autumn",
+      "sha256": "3529507cc310a2b5c9980dae6f588664c83b5718536125be6e6f82b8953e229d"
+    },
+    {
+      "category": "seasons",
+      "path": "Seasons/season_winter.json",
+      "id": "season_winter",
+      "sha256": "e235602784c53ed6e06f6d6ddb0c2b71f0fc164917095cb531b1f7b73a482e48"
+    }
+  ],
+  "integrity_scope": "Synchronization consistency only; not a cryptographic signature or anti-tampering mechanism."
+}

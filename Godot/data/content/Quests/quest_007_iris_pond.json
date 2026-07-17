@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "id": "quest_007_iris_pond",
+  "display_name": "Blue Iris by the Water basin",
+  "author": "Design Lead",
+  "last_modified": "2026-07-17",
+  "tags": ["harvest", "summer"],
+  "title": "Elegant Blue Blooms for Anna",
+  "steps": [
+    { "type": "Harvest", "target_id": "flower_iris", "count": 3 }
+  ],
+  "completion": { "npc_id": "npc_anna" },
+  "rewards": [
+    { "gold": 380 }
+  ],
+  "repeatable": false,
+  "season": "Summer",
+  "dependencies": ["quest_004_lavender_tea"]
+}

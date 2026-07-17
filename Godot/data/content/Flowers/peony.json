@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "id": "flower_peony",
+  "display_name": "Pink Peony",
+  "author": "Botanist Lead",
+  "last_modified": "2026-07-17",
+  "tags": ["spring", "lush", "romantic"],
+  "description": "A lush, full-bodied pink bloom symbolising prosperity and romance in old folklore.",
+  "rarity": "Uncommon",
+  "growth_time": 1800,
+  "seed_item": "seed_peony",
+  "yield_item": "flower_peony",
+  "sprite": "flower_peony_bloom.png",
+  "sprout_sprite_resource": "flower_peony_sprout.png",
+  "sell_price": 120,
+  "festival_bonus": 30,
+  "favorite_season": "Spring",
+  "preferred_weather": "Sunny"
+}

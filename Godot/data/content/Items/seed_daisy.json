@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "id": "seed_daisy",
+  "display_name": "Daisy Seeds",
+  "author": "Botanist Lead",
+  "last_modified": "2026-07-17",
+  "tags": ["seed", "spring"],
+  "item_type": "Seed",
+  "target_flower_id": "flower_daisy",
+  "buy_price": 10,
+  "satchel_slot_default": 6,
+  "icon_resource": "seed_daisy_icon.png"
+}

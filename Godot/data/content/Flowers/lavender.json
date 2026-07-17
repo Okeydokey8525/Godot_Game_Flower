@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "id": "flower_lavender",
+  "display_name": "Fragrant Lavender",
+  "author": "Botanist Lead",
+  "last_modified": "2026-07-17",
+  "tags": ["summer", "calming", "fragrant"],
+  "description": "A soothing purple stalk with a delightful scent. Often dried for tea and perfumes.",
+  "rarity": "Common",
+  "growth_time": 720,
+  "seed_item": "seed_lavender",
+  "yield_item": "flower_lavender",
+  "sprite": "flower_lavender_bloom.png",
+  "sprout_sprite_resource": "flower_lavender_sprout.png",
+  "sell_price": 50,
+  "festival_bonus": 10,
+  "favorite_season": "Summer",
+  "preferred_weather": "Sunny"
+}

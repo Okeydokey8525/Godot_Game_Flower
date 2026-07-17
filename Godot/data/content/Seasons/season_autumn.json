@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "id": "season_autumn",
+  "display_name": "Golden Autumn",
+  "author": "System Lead",
+  "last_modified": "2026-07-17",
+  "tags": ["season", "autumn"],
+  "season_order": 3,
+  "default_weather": "weather_cloudy",
+  "allowed_weather": ["weather_sunny", "weather_rain", "weather_cloudy"],
+  "crop_growth_multiplier": 1.0,
+  "water_evaporation_rate": 0.85,
+  "ambient_color_hex": "#E8B478"
+}

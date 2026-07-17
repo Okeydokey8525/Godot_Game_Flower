@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "id": "npc_thomas",
+  "display_name": "Thomas the Village Elder",
+  "default_x": 416,
+  "default_y": 192,
+  "sprite_idle": "npc_thomas_idle.png",
+  "portrait": "portrait_thomas_normal.png",
+  "default_dialogue_id": "dialogue_thomas_intro",
+  "role": "Tutorial Guide & Greenhouse Caretaker"
+}

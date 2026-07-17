@@ -1,0 +1,8 @@
+{
+  "schema_version": 1,
+  "id": "season_spring",
+  "display_name": "Spring",
+  "day_count_duration": 28,
+  "allowed_flower_ids": ["flower_white_lily", "flower_tulip", "flower_rose"],
+  "bgm_loop": "bgm_spring_morning.wav"
+}

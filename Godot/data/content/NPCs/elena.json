@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "id": "npc_elena",
+  "display_name": "Elena the Village Mayor",
+  "author": "Narrative Lead",
+  "last_modified": "2026-07-17",
+  "tags": ["mayor", "leader", "village"],
+  "portrait": "portrait_elena_normal.png",
+  "default_schedule": {
+    "default": { "x": 512, "y": 128, "scene": "VillageTownHallScene" },
+    "morning": { "x": 512, "y": 128, "scene": "VillageTownHallScene" },
+    "evening": { "x": 400, "y": 300, "scene": "GreenhouseScene" }
+  },
+  "dialogue_root": "dialogue_elena_townhall",
+  "likes": ["flower_golden_lotus", "flower_orchid", "flower_rose"],
+  "dislikes": ["item_stone"],
+  "birthday": "Autumn 5",
+  "relationship_events": [
+    { "hearts": 2, "dialogue_id": "dialogue_elena_heart2" }
+  ]
+}

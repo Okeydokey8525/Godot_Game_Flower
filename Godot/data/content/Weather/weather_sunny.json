@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "id": "weather_sunny",
+  "display_name": "Sunny Day",
+  "tint_color": "#FFFFFF",
+  "rain_particles": false,
+  "growth_speed_multiplier": 1.0,
+  "ambient_sfx": "sfx_ambient_birds.wav"
+}

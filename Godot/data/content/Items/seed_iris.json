@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "id": "seed_iris",
+  "display_name": "Blue Iris Bulbs",
+  "author": "Botanist Lead",
+  "last_modified": "2026-07-17",
+  "tags": ["seed", "summer"],
+  "item_type": "Seed",
+  "target_flower_id": "flower_iris",
+  "buy_price": 40,
+  "satchel_slot_default": 7,
+  "icon_resource": "seed_iris_icon.png"
+}

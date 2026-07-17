@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "id": "quest_009_sacred_lotus",
+  "display_name": "The Sacred Water Lotus",
+  "author": "Design Lead",
+  "last_modified": "2026-07-17",
+  "tags": ["harvest", "summer", "rare", "elena"],
+  "title": "A Rare Centerpiece for the Mayor",
+  "steps": [
+    { "type": "Harvest", "target_id": "flower_lotus", "count": 1 }
+  ],
+  "completion": { "npc_id": "npc_elena" },
+  "rewards": [
+    { "gold": 600 }
+  ],
+  "repeatable": false,
+  "season": "Summer",
+  "dependencies": ["quest_008_peony_perfume"]
+}

@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "id": "flower_sunflower",
+  "display_name": "Golden Sunflower",
+  "author": "Botanist Lead",
+  "last_modified": "2026-07-17",
+  "tags": ["summer", "radiant", "high_yield"],
+  "description": "A towering bright yellow flower that turns to face the morning sun. Highly profitable.",
+  "rarity": "Common",
+  "growth_time": 2160,
+  "seed_item": "seed_sunflower",
+  "yield_item": "flower_sunflower",
+  "sprite": "flower_sunflower_bloom.png",
+  "sprout_sprite_resource": "flower_sunflower_sprout.png",
+  "sell_price": 140,
+  "festival_bonus": 40,
+  "favorite_season": "Summer",
+  "preferred_weather": "Sunny"
+}

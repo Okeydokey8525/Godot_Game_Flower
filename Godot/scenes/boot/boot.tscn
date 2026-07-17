@@ -30,10 +30,10 @@ horizontal_alignment = 1
 
 [node name="PhaseLabel" type="Label" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
-text = "Godot Runtime Foundation — M4.3A.1"
+text = "Godot Content Pipeline - M4.3A.2"
 horizontal_alignment = 1
 
 [node name="StatusLabel" type="Label" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
-text = "Initializing..."
+text = "Initializing content..."
 horizontal_alignment = 1

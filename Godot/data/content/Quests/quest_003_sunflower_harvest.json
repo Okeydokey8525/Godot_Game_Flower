@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "id": "quest_003_sunflower_harvest",
+  "display_name": "Summer Gold Rush",
+  "author": "Design Lead",
+  "last_modified": "2026-07-17",
+  "tags": ["harvest", "summer", "repeatable"],
+  "title": "Golden Sunflowers for the Festival",
+  "steps": [
+    { "type": "Harvest", "target_id": "flower_sunflower", "count": 5 },
+    { "type": "Ship", "target_id": "flower_sunflower", "count": 5 }
+  ],
+  "completion": {
+    "auto_complete": true
+  },
+  "rewards": [
+    { "gold": 800 }
+  ],
+  "repeatable": true,
+  "season": "Summer",
+  "dependencies": ["quest_002_rose_delivery"]
+}

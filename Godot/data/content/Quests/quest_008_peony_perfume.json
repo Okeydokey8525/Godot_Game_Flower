@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "id": "quest_008_peony_perfume",
+  "display_name": "Peony Essence",
+  "author": "Design Lead",
+  "last_modified": "2026-07-17",
+  "tags": ["harvest", "spring", "anna"],
+  "title": "Lush Pink Peonies for Botanical Perfume",
+  "steps": [
+    { "type": "Harvest", "target_id": "flower_peony", "count": 2 }
+  ],
+  "completion": { "npc_id": "npc_anna" },
+  "rewards": [
+    { "gold": 350 },
+    { "item_id": "seed_lotus", "count": 1 }
+  ],
+  "repeatable": false,
+  "season": "Spring",
+  "dependencies": ["quest_002_rose_delivery"]
+}

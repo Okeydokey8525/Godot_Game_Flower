@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "id": "flower_orchid",
+  "display_name": "Moonlight Orchid",
+  "author": "Botanist Lead",
+  "last_modified": "2026-07-17",
+  "tags": ["autumn", "exotic", "rare"],
+  "description": "An exotic white orchid that prefers gentle shade and rewards patient growers with high gold.",
+  "rarity": "Rare",
+  "growth_time": 2880,
+  "seed_item": "seed_orchid",
+  "yield_item": "flower_orchid",
+  "sprite": "flower_orchid_bloom.png",
+  "sprout_sprite_resource": "flower_orchid_sprout.png",
+  "sell_price": 280,
+  "festival_bonus": 75,
+  "favorite_season": "Autumn",
+  "preferred_weather": "Cloudy"
+}

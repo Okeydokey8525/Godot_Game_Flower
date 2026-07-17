@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "id": "flower_bluebell",
+  "display_name": "Winter Bluebell",
+  "author": "Botanist Lead",
+  "last_modified": "2026-07-17",
+  "tags": ["winter", "hardy", "bell"],
+  "description": "A delicate bell-shaped blue flower that miraculously withstands frost in the greenhouse.",
+  "rarity": "Uncommon",
+  "growth_time": 1440,
+  "seed_item": "seed_bluebell",
+  "yield_item": "flower_bluebell",
+  "sprite": "flower_bluebell_bloom.png",
+  "sprout_sprite_resource": "flower_bluebell_sprout.png",
+  "sell_price": 100,
+  "festival_bonus": 30,
+  "favorite_season": "Winter",
+  "preferred_weather": "Cloudy"
+}

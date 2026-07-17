@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "id": "quest_013_carnation_bouquet",
+  "display_name": "Autumn Festival Bouquets",
+  "author": "Design Lead",
+  "last_modified": "2026-07-17",
+  "tags": ["harvest", "autumn", "repeatable"],
+  "title": "Carnations for Town Hall Decor",
+  "steps": [
+    { "type": "Harvest", "target_id": "flower_carnation", "count": 4 },
+    { "type": "Ship", "target_id": "flower_carnation", "count": 4 }
+  ],
+  "completion": { "auto_complete": true },
+  "rewards": [
+    { "gold": 320 }
+  ],
+  "repeatable": true,
+  "season": "Autumn",
+  "dependencies": []
+}
